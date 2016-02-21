@@ -1,0 +1,52 @@
+type: object
+required:
+  - name
+  - url
+  - servicePhone
+  - serviceEmail
+properties:
+  id:
+    description: The website identifier string
+    type: string
+    readOnly: true
+  name:
+    description: The website's name
+    type: string
+  url:
+    description: The website's domain address
+    type: string
+  servicePhone:
+    description: The website's customer service phone number
+    type: string
+  serviceEmail:
+    description: The website's customer service email address
+    type: string
+    format: email
+  checkoutPageUri:
+    description: Your own custom URI for this Checkout Page
+    type: string
+  webHookUrl:
+    description: Webhook Url (only for POST/PUT)
+    type: string
+  webHookUsername:
+    description: Webhook HTTP Authentication Username (only for POST/PUT)
+    type: string
+  webHookPassword:
+    description: Webhook HTTP Authentication Password (only for POST/PUT)
+    type: string
+  createdTime:
+    description: Website created time
+    type: string
+    format: date-time
+  updatedTime:
+    description: Website updated time
+    type: string
+    format: date-time
+  _links:
+    description: The links related to website
+    type: array
+    readOnly: true
+    items:
+      $ref: "#/definitions/Link"
+  customFields:
+    $ref: "#/definitions/ResourceCustomFields"

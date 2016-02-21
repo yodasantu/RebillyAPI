@@ -1,0 +1,40 @@
+get:
+  tags:
+    - Blacklists
+  summary: Retrieve a list of blacklists
+  description: |
+    Retrieve a list of blacklists
+  parameters:
+    - $ref: "#/parameters/collectionLimit"
+    - $ref: "#/parameters/collectionOffset"
+  responses:
+    200:
+      description: A list of Blacklists was retrieved successfully
+      schema:
+        type: array
+        items:
+          $ref: "#/definitions/Blacklist"
+    401:
+      $ref: "#/responses/AccessForbidden"
+post:
+  tags:
+    - Blacklists
+  summary: Create a blacklist
+  description: |
+    Create a blacklist
+  parameters:
+    - name: body
+      in: body
+      description: Blacklist resource
+      required: true
+      schema:
+        $ref: "#/definitions/Blacklist"
+  responses:
+    201:
+      description: Blacklist was created
+      schema:
+        $ref: "#/definitions/Blacklist"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    422:
+      $ref: "#/responses/InvalidDataError"

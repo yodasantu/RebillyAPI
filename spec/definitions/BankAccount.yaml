@@ -1,0 +1,52 @@
+type: object
+properties:
+  id:
+    description: The bank account identifier string
+    type: string
+    readOnly: true
+  customerId:
+    description: The Customer's ID.
+    type: string
+  bankName:
+    description: Bank's name.
+    type: string
+  routingNumber:
+    description: Bank's Routing Number. Required if bank account is not created from Token
+    type: string
+  accountNumber:
+    description: Bank's Account Number. Required if bank account is not created from Token
+    type: string
+  accountType:
+    description: Banks's Account type. Required if bank account is not created from Token
+    type: string
+  token:
+    description: Bank Account Token. Use without any other fields
+    type: string
+  contactId:
+    description: The Contact ID. Required if bank account is not created from Token
+    type: string
+  status:
+    description: Bank Account status
+    type: string
+    readOnly: true
+    enum:
+      - "active"
+      - "deactivated"
+  createdTime:
+    description: Bank Account created time
+    type: string
+    format: date-time
+    readOnly: true
+  updatedTime:
+    description: Bank Account updated time
+    type: string
+    format: date-time
+    readOnly: true
+  _links:
+    description: The links related to Bank Account
+    type: array
+    readOnly: true
+    items:
+      $ref: "#/definitions/Link"
+  customFields:
+    $ref: "#/definitions/ResourceCustomFields"

@@ -1,0 +1,34 @@
+type: object
+required:
+  - username
+  - password
+properties:
+  token:
+    description: The token identifier string
+    type: string
+    readOnly: true
+  username:
+    description: The token's username
+    type: string
+  password:
+    description: The token's password (write-only)
+    type: string
+    format: password
+  credentialId:
+    description: The credential's ID
+    type: string
+    readOnly: true
+  customerId:
+    description: The token's customer ID
+    type: string
+    readOnly: true
+  expiredTime:
+    description: Token's expired time
+    type: string
+    format: date-time
+  _links:
+    description: The links related to token
+    type: array
+    readOnly: true
+    items:
+      $ref: "#/definitions/Link"

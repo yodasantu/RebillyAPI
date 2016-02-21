@@ -1,0 +1,36 @@
+type: object
+properties:
+  id:
+    description: The user identifier string
+    type: string
+    readOnly: true
+  email:
+    description: The user email
+    type: string
+    format: email
+    maxLength: 100
+  firstName:
+    description: The user first name
+    type: string
+  lastName:
+    description: The user last name
+    type: string
+  phoneNumber:
+    description: The user phone number
+    type: string
+  createdTime:
+    description: The user created time
+    type: string
+    format: date-time
+    readOnly: true
+  updatedTime:
+    description: The user updated time
+    type: string
+    format: date-time
+    readOnly: true
+  _links:
+    description: The links related to user
+    type: array
+    readOnly: true
+    items:
+      $ref: "#/definitions/Link"

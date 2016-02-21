@@ -1,0 +1,47 @@
+parameters:
+  - $ref: "#/parameters/resourceId"
+get:
+  tags:
+    - Lead Source
+  summary: Retrieve a LeadSource
+  description: |
+    Retrieve a LeadSource with specified identifier string
+  responses:
+    200:
+      description: LeadSource was retrieved successfully
+      schema:
+        $ref: "#/definitions/LeadSource"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"
+put:
+  tags:
+    - Lead Source
+  summary: Create a LeadSource with predefined ID
+  description: |
+    Create a LeadSource with predefined identifier string
+  parameters:
+    - name: body
+      in: body
+      description: LeadSource resource
+      required: true
+      schema:
+        $ref: "#/definitions/LeadSource"
+  responses:
+    200:
+      description: LeadSource was updated
+      schema:
+        $ref: "#/definitions/LeadSource"
+    201:
+      description: LeadSource was created
+      schema:
+        $ref: "#/definitions/LeadSource"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"
+    422:
+      description: Invalid data was sent
+      schema:
+        $ref: "#/definitions/InvalidError"

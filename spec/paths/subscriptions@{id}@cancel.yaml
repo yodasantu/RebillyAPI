@@ -1,0 +1,26 @@
+parameters:
+  - $ref: "#/parameters/resourceId"
+post:
+  tags:
+    - Subscription
+  summary: Cancel a subscription
+  description: |
+    Cancel a subscription
+  parameters:
+    - name: body
+      in: body
+      description: Only policy
+      required: true
+      schema:
+        $ref: "#/definitions/SubscriptionCancel"
+  responses:
+    201:
+      description: Subscription was switched
+      schema:
+        $ref: "#/definitions/Subscription"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    422:
+      description: Invalid data was sent
+      schema:
+        $ref: "#/definitions/InvalidError"

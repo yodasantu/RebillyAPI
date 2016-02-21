@@ -1,0 +1,42 @@
+type: object
+properties:
+  id:
+    description: The customer identifier string
+    type: string
+    readOnly: true
+  email:
+    description: The customer email
+    type: string
+    format: email
+    maxLength: 100
+  firstName:
+    description: The customer first name
+    type: string
+  lastName:
+    description: The customer last name
+    type: string
+  ipAddress:
+    description: The customer IP
+    type: string
+    format: ipv4
+  defaultCardId:
+    description: The customer default card ID
+    type: string
+  createdTime:
+    description: The customer created time
+    type: string
+    format: date-time
+    readOnly: true
+  updatedTime:
+    description: The customer updated time
+    type: string
+    format: date-time
+    readOnly: true
+  _links:
+    description: The links related to customer
+    type: array
+    readOnly: true
+    items:
+      $ref: "#/definitions/Link"
+  customFields:
+    $ref: "#/definitions/ResourceCustomFields"

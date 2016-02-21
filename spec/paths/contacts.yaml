@@ -1,0 +1,40 @@
+get:
+  tags:
+    - Contact
+  summary: Retrieve a list of contacts
+  description: |
+    Retrieve a list of contacts
+  parameters:
+    - $ref: "#/parameters/collectionLimit"
+    - $ref: "#/parameters/collectionOffset"
+  responses:
+    200:
+      description: A list of Contacts was retrieved successfully
+      schema:
+        type: array
+        items:
+          $ref: "#/definitions/Contact"
+    401:
+      $ref: "#/responses/AccessForbidden"
+post:
+  tags:
+    - Contact
+  summary: Create a contact
+  description: |
+    Create a contact
+  parameters:
+    - name: body
+      in: body
+      description: Contact resource
+      required: true
+      schema:
+        $ref: "#/definitions/Contact"
+  responses:
+    201:
+      description: Contact was created
+      schema:
+        $ref: "#/definitions/Contact"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    422:
+      $ref: "#/responses/InvalidDataError"

@@ -1,0 +1,42 @@
+get:
+  tags:
+    - Plan
+  summary: Retrieve a list of plans
+  description: |
+    Retrieve a list of plans
+  parameters:
+    - $ref: "#/parameters/collectionLimit"
+    - $ref: "#/parameters/collectionOffset"
+  responses:
+    200:
+      description: A list of Plans was retrieved successfully
+      schema:
+        type: array
+        items:
+          $ref: "#/definitions/Plan"
+    401:
+      $ref: "#/responses/AccessForbidden"
+post:
+  tags:
+    - Plan
+  summary: Create a plan
+  description: |
+    Create a plan
+  parameters:
+    - name: body
+      in: body
+      description: Plan resource
+      required: true
+      schema:
+        $ref: "#/definitions/Plan"
+  responses:
+    201:
+      description: Plan was created
+      schema:
+        $ref: "#/definitions/Plan"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    422:
+      description: Invalid data was sent
+      schema:
+        $ref: "#/definitions/InvalidError"

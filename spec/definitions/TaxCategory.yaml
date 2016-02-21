@@ -1,0 +1,30 @@
+type: object
+properties:
+  id:
+    description: The tax category identifier string
+    type: string
+    readOnly: true
+    maxLength: 50
+    enum:
+      - "99999"
+      - "20010"
+      - "40030"
+      - "51020"
+      - "51010"
+      - "31000"
+      - "30070"
+  description:
+    description: The tax category description
+    type: string
+    maxLength: 512
+  taxProvider:
+    description: The tax category maps to a provider
+    type: string
+    enum:
+      - "TaxJar"
+  _links:
+    description: The links related to tax category
+    type: array
+    readOnly: true
+    items:
+      $ref: "#/definitions/Link"

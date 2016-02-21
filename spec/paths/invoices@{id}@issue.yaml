@@ -1,0 +1,24 @@
+parameters:
+  - $ref: "#/parameters/resourceId"
+post:
+  tags:
+    - Invoice
+  summary: Issue an invoice
+  description: |
+    Issue an invoice with specified identifier string
+  parameters:
+    - name: body
+      in: body
+      description: InvoiceItem resource
+      required: true
+      schema:
+        $ref: "#/definitions/InvoiceIssue"
+  responses:
+    201:
+      description: Invoice was abandoned successfully
+      schema:
+        $ref: "#/definitions/Invoice"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"

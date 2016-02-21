@@ -1,0 +1,22 @@
+post:
+  tags:
+    - User
+  summary: Creates a new user and sends an email confirmation
+  description: |
+    Creates a new user and sends an email confirmation
+  parameters:
+    - name: body
+      in: body
+      description: Signup resource
+      required: true
+      schema:
+        $ref: "#/definitions/Signup"
+  responses:
+    201:
+      description: User was created
+      schema:
+        $ref: "#/definitions/User"
+    422:
+      description: Invalid data was sent
+      schema:
+        $ref: "#/definitions/InvalidError"

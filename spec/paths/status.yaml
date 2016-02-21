@@ -1,0 +1,11 @@
+get:
+  tags:
+    - Status
+  summary: Retrieve API current status
+  description: |
+    Retrieve API current status
+  responses:
+    200:
+      description: Status was received
+      schema:
+        $ref: "#/definitions/Status"

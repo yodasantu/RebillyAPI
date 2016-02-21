@@ -1,0 +1,44 @@
+get:
+  tags:
+    - BankAccount
+    - Public
+  summary: Retrieve a list of bank accounts
+  description: |
+    Retrieve a list of Bank Accounts
+  parameters:
+    - $ref: "#/parameters/collectionLimit"
+    - $ref: "#/parameters/collectionOffset"
+  responses:
+    200:
+      description: A list of Bank Accounts was retrieved successfully
+      schema:
+        type: array
+        items:
+          $ref: "#/definitions/BankAccount"
+    401:
+      $ref: "#/responses/AccessForbidden"
+post:
+  tags:
+    - BankAccount
+    - Public
+  summary: Create a Bank Account
+  description: |
+    Create a Bank Account
+  parameters:
+    - name: body
+      in: body
+      description: BankAccount resource
+      required: true
+      schema:
+        $ref: "#/definitions/BankAccount"
+  responses:
+    201:
+      description: Bank Account was created
+      schema:
+        $ref: "#/definitions/BankAccount"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    422:
+      description: Invalid data was sent
+      schema:
+        $ref: "#/definitions/InvalidError"

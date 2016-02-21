@@ -1,0 +1,42 @@
+get:
+  tags:
+    - Invoice
+  summary: Retrieve a list of invoices
+  description: |
+    Retrieve a list of invoices
+  parameters:
+    - $ref: "#/parameters/collectionLimit"
+    - $ref: "#/parameters/collectionOffset"
+  responses:
+    200:
+      description: A list of invoices was retrieved successfully
+      schema:
+        type: array
+        items:
+          $ref: "#/definitions/Invoice"
+    401:
+      $ref: "#/responses/AccessForbidden"
+post:
+  tags:
+    - Invoice
+  summary: Create an invoice
+  description: |
+    Create an invoice
+  parameters:
+    - name: body
+      in: body
+      description: Invoice resource
+      required: true
+      schema:
+        $ref: "#/definitions/Invoice"
+  responses:
+    201:
+      description: Invoice was created
+      schema:
+        $ref: "#/definitions/Invoice"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    422:
+      description: Invalid data was sent
+      schema:
+        $ref: "#/definitions/InvalidError"

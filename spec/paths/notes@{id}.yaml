@@ -1,0 +1,47 @@
+parameters:
+  - $ref: "#/parameters/resourceId"
+get:
+  tags:
+    - Note
+  summary: Retrieve a note
+  description: |
+    Retrieve a note with specified identifier string
+  responses:
+    200:
+      description: Note was retrieved successfully
+      schema:
+        $ref: "#/definitions/Note"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"
+put:
+  tags:
+    - Note
+  summary: Create or update a note with predefined ID
+  description: |
+    Create or update a note with predefined identifier string
+  parameters:
+    - name: body
+      in: body
+      description: Note resource
+      required: true
+      schema:
+        $ref: "#/definitions/Note"
+  responses:
+    200:
+      description: Note was updated
+      schema:
+        $ref: "#/definitions/Note"
+    201:
+      description: Note was created
+      schema:
+        $ref: "#/definitions/Note"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"
+    422:
+      description: Invalid data was sent
+      schema:
+        $ref: "#/definitions/InvalidError"

@@ -1,0 +1,40 @@
+get:
+  tags:
+    - Product
+  summary: Retrieve a list of products
+  description: |
+    Retrieve a list of products
+  parameters:
+    - $ref: "#/parameters/collectionLimit"
+    - $ref: "#/parameters/collectionOffset"
+  responses:
+    200:
+      description: A list of products was retrieved successfully
+      schema:
+        type: array
+        items:
+          $ref: "#/definitions/Product"
+    401:
+      $ref: "#/responses/AccessForbidden"
+post:
+  tags:
+    - Product
+  summary: Create a Product
+  description: |
+    Create a Product
+  parameters:
+    - name: body
+      in: body
+      description: Product resource
+      required: true
+      schema:
+        $ref: "#/definitions/Product"
+  responses:
+    201:
+      description: Product was created
+      schema:
+        $ref: "#/definitions/Product"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    422:
+      $ref: "#/responses/InvalidDataError"

@@ -1,0 +1,30 @@
+type: object
+required:
+  - email
+  - company
+  - firstName
+  - lastName
+  - businessPhone
+  - password
+properties:
+  email:
+    description: The user email
+    type: string
+    format: email
+    maxLength: 100
+  company:
+    description: The user's company name
+    type: string
+  firstName:
+    description: The user first name
+    type: string
+  lastName:
+    description: The user last name
+    type: string
+  businessPhone:
+    description: The user business phone number
+    type: string
+  password:
+    description: The user password
+    type: string
+    format: password

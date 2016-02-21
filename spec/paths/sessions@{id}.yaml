@@ -1,0 +1,62 @@
+parameters:
+  - $ref: "#/parameters/resourceId"
+get:
+  tags:
+    - Session
+  summary: Retrieve a Session
+  description: |
+    Retrieve a Session with specified identifier string
+  responses:
+    200:
+      description: Session was retrieved successfully
+      schema:
+        $ref: "#/definitions/Session"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"
+put:
+  tags:
+    - Session
+  summary: Create or update a Session with predefined ID
+  description: |
+    Create or update a Session with predefined identifier string
+  parameters:
+    - name: body
+      in: body
+      description: Session resource
+      required: true
+      schema:
+        $ref: "#/definitions/Session"
+  responses:
+    200:
+      description: Session was updated
+      schema:
+        $ref: "#/definitions/Session"
+    201:
+      description: Session was created
+      schema:
+        $ref: "#/definitions/Session"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"
+    422:
+      description: Invalid data was sent
+      schema:
+        $ref: "#/definitions/InvalidError"
+delete:
+  tags:
+    - Session
+  summary: Delete a Session
+  description: |
+    Delete a Session with predefined identifier string
+  responses:
+    204:
+      description: Session was deleted
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"
+    409:
+      description: Session has related resources and cannot be deleted

@@ -1,0 +1,63 @@
+type: object
+properties:
+  id:
+    description: The contact identifier string
+    type: string
+    readOnly: true
+  customerId:
+    description: The contact ID
+    type: string
+  firstName:
+    description: The contact first name
+    type: string
+  lastName:
+    description: The contact last name
+    type: string
+  organization:
+    description: The contact organization
+    type: string
+  address:
+    description: The contact street address
+    type: string
+    maxLength: 60
+  address2:
+    description: The contact street address (second line)
+    type: string
+    maxLength: 60
+  city:
+    description: The contact city
+    type: string
+    maxLength: 45
+  region:
+    description: The contact region (state)
+    type: string
+    maxLength: 45
+  country:
+    description: The contact country ISO Alpha-2 code
+    type: string
+    pattern: "^[A-Z]{2}$"
+  postalCode:
+    description: The contact postal code
+    type: string
+    maxLength: 10
+  phoneNumber:
+    description: The contact phone number
+    type: string
+  createdTime:
+    description: The contact created time
+    type: string
+    format: date-time
+    readOnly: true
+  updatedTime:
+    description: The contact updated time
+    type: string
+    format: date-time
+    readOnly: true
+  _links:
+    description: The links related to contact
+    type: array
+    readOnly: true
+    items:
+      $ref: "#/definitions/Link"
+  customFields:
+    $ref: "#/definitions/ResourceCustomFields"

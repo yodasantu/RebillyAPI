@@ -1,0 +1,47 @@
+parameters:
+  - $ref: "#/parameters/resourceId"
+get:
+  tags:
+    - User
+  summary: Retrieve an user
+  description: |
+    Retrieve an user with specified identifier string
+  responses:
+    200:
+      description: User was retrieved successfully
+      schema:
+        $ref: "#/definitions/User"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"
+put:
+  tags:
+    - User
+  summary: Create or update an user with predefined ID
+  description: |
+    Create or update an user with predefined identifier string
+  parameters:
+    - name: body
+      in: body
+      description: User resource
+      required: true
+      schema:
+        $ref: "#/definitions/User"
+  responses:
+    200:
+      description: User was updated
+      schema:
+        $ref: "#/definitions/User"
+    201:
+      description: User was created
+      schema:
+        $ref: "#/definitions/User"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"
+    422:
+      description: Invalid data was sent
+      schema:
+        $ref: "#/definitions/InvalidError"

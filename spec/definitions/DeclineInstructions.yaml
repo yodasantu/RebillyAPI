@@ -1,0 +1,10 @@
+type: object
+description: Dunning instructions object for payment declines
+properties:
+  dunningId:
+    description: The dunning identifier string
+    type: string
+  dunningIndex:
+    readOnly: true
+    description: The position in the sequence of dunning
+    type: integer

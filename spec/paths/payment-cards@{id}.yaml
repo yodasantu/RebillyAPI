@@ -1,0 +1,17 @@
+parameters:
+  - $ref: "#/parameters/resourceId"
+get:
+  tags:
+    - Payment Card
+  summary: Retrieve a Payment Card
+  description: |
+    Retrieve a Payment Card with specified identifier string
+  responses:
+    200:
+      description: PaymentCard was retrieved successfully
+      schema:
+        $ref: "#/definitions/PaymentCard"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"

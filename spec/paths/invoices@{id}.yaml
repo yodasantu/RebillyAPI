@@ -1,0 +1,47 @@
+parameters:
+  - $ref: "#/parameters/resourceId"
+get:
+  tags:
+    - Invoice
+  summary: Retrieve an invoice
+  description: |
+    Retrieve an invoice with specified identifier string
+  responses:
+    200:
+      description: Invoice was retrieved successfully
+      schema:
+        $ref: "#/definitions/Invoice"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"
+put:
+  tags:
+    - Invoice
+  summary: Create or update an invoice with predefined ID
+  description: |
+    Create or update an invoice with predefined identifier string
+  parameters:
+    - name: body
+      in: body
+      description: Invoice resource
+      required: true
+      schema:
+        $ref: "#/definitions/Invoice"
+  responses:
+    200:
+      description: Invoice was updated
+      schema:
+        $ref: "#/definitions/Invoice"
+    201:
+      description: Invoice was created
+      schema:
+        $ref: "#/definitions/Invoice"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"
+    422:
+      description: Invalid data was sent
+      schema:
+        $ref: "#/definitions/InvalidError"

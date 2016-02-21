@@ -1,0 +1,12 @@
+type: object
+properties:
+  planId:
+    description: The plan identifier string
+    type: string
+  starred:
+    description: Boolean if the plan should be starred (special callout presentation)
+    type: boolean
+  order:
+    description: Item's order in Layout
+    type: integer
+    readOnly: true

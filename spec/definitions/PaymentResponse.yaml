@@ -1,0 +1,27 @@
+allOf:
+  - $ref: "#/definitions/Payment"
+  - type: object
+    properties:
+      id:
+        description: The payment identifier string
+        type: string
+      createdBy:
+        description: The process that created this payment
+        type: string
+      updatedBy:
+        description: The process that updated this payment
+        type: string
+      state:
+        description: Payment state
+        type: string
+      createdTime:
+        description: Payment created time
+        type: string
+      updatedTime:
+        description: Payment updated time
+        type: string
+      _links:
+        description: The links related to payment
+        type: array
+        items:
+          $ref: "#/definitions/Link"

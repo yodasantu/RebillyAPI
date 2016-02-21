@@ -1,0 +1,60 @@
+parameters:
+  - $ref: "#/parameters/resourceId"
+get:
+  tags:
+    - Organization
+  summary: Retrieve a organization
+  description: |
+    Retrieve a organization with specified identifier string
+  responses:
+    200:
+      description: Organization was retrieved successfully
+      schema:
+        $ref: "#/definitions/Organization"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"
+put:
+  tags:
+    - Organization
+  summary: Create or update a organization with predefined ID
+  description: |
+    Create or update a organization with predefined identifier string
+  parameters:
+    - name: body
+      in: body
+      description: Organization resource
+      required: true
+      schema:
+        $ref: "#/definitions/Organization"
+  responses:
+    200:
+      description: Organization was updated
+      schema:
+        $ref: "#/definitions/Organization"
+    201:
+      description: Organization was created
+      schema:
+        $ref: "#/definitions/Organization"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    422:
+      $ref: "#/responses/InvalidDataError"
+delete:
+  tags:
+    - Organization
+  summary: Delete a organization
+  description: |
+    Delete a organization with predefined identifier string
+  responses:
+    204:
+      description: Organization was deleted
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"
+    409:
+      description: Organization has related resources and cannot be deleted
+      schema:
+        $ref: "#/definitions/Error"

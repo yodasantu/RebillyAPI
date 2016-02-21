@@ -1,0 +1,35 @@
+parameters:
+  -
+    name: token
+    in: path
+    description: The token identifier string
+    type: string
+    required: true
+get:
+  tags:
+    - Customer Authentication
+  summary: Verify
+  description: |
+    Verify an authentication token
+  responses:
+    200:
+      description: Authentication Token was verified
+      schema:
+        $ref: "#/definitions/AuthenticationToken"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"
+delete:
+  tags:
+    - Customer Authentication
+  summary: Logout a user
+  description: |
+    Logout a user
+  responses:
+    204:
+      description: User was logged out
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"

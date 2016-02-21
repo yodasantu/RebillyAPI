@@ -1,0 +1,43 @@
+parameters:
+  - $ref: "#/parameters/resourceId"
+get:
+  tags:
+    - Contact
+  summary: Retrieve a contact
+  description: |
+    Retrieve a contact with specified identifier string
+  responses:
+    200:
+      description: Contact was retrieved successfully
+      schema:
+        $ref: "#/definitions/Contact"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"
+put:
+  tags:
+    - Contact
+  summary: Create or update a contact with predefined ID
+  description: |
+    Create or update a contact with predefined identifier string
+  parameters:
+    - name: body
+      in: body
+      description: Contact resource
+      required: true
+      schema:
+        $ref: "#/definitions/Contact"
+  responses:
+    201:
+      description: Contact was created
+      schema:
+        $ref: "#/definitions/Contact"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"
+    409:
+      description: Contact exists and cannot be updated
+    422:
+      $ref: "#/responses/InvalidDataError"

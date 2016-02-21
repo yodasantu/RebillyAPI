@@ -1,0 +1,17 @@
+parameters:
+  - $ref: "#/parameters/resourceId"
+post:
+  tags:
+    - Invoice
+  summary: Abandon an invoice
+  description: |
+    Abandon an invoice with specified identifier string
+  responses:
+    201:
+      description: Invoice was abandoned successfully
+      schema:
+        $ref: "#/definitions/Invoice"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"

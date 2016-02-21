@@ -1,0 +1,119 @@
+type: object
+required:
+  - gatewayName
+  - merchantCategoryCode
+  - websites
+  - acquirerName
+  - acceptedCurrencies
+  - organizationId
+properties:
+  id:
+    description: The gateway identifier string
+    type: string
+    readOnly: true
+  gatewayName:
+    description: The gateway name
+    type: string
+  gatewayConfig:
+    type: object
+    description: Gateway config. Fields depends on gatewayName
+  merchantCategoryCode:
+    description: The gateway's merchant category code
+    type: integer
+    minimum: 742
+    maximum: 9950
+  dccMarkup:
+    description: Dynamic currency conversion markup in basis points (disabled if null)
+    type: integer
+    minimum: 1
+    maximum: 10000
+  descriptor:
+    description: The gateway's desciptor
+    type: string
+  city:
+    description: The gateway's city field
+    type: string
+  organizationId:
+    description: Organization ID
+    type: string
+  websites:
+    description: Websites IDs
+    type: array
+    items:
+      type: string
+      description: Website ID
+  acquirerName:
+    description: Acquirer name
+    type: string
+  monthlyLimit:
+    description: Monthly Limit
+    type: integer
+    format: double
+    minimum: 0
+  threeDSecure:
+    description: True, if Gateway Account allows 3DSecure
+    type: boolean
+  threeDSecureType:
+    description: Type of 3DSecure
+    type: string
+    enum:
+      - null
+      - "integrated"
+      - "external"
+  dynamicDescriptor:
+    description: True, if Gateway Account allows dynamic descriptor
+    type: boolean
+  acceptedCurrencies:
+    description: Accepted currencies (array of the currency three letter code)
+    type: array
+    items:
+      type: string
+  method:
+    description: Accepted payment method
+    type: string
+    enum:
+      - "payment_card"
+      - "ach"
+      - "paypal"
+  paymentCardSchemes:
+    description: Accepted payment card brands
+    type: array
+    items:
+      type: string
+      enum:
+        - "Visa"
+        - "MasterCard"
+        - "American Express"
+        - "Discover"
+        - "Maestro"
+        - "Solo"
+        - "Electron"
+        - "JCB"
+        - "Voyager"
+        - "Diners Club"
+        - "Switch"
+        - "Laser"
+  downtimeStart:
+    description: Gateway downtime start
+    type: string
+    format: date-time
+  downtimeEnd:
+    description: Gateway downtime end
+    type: string
+    format: date-time
+  createdTime:
+    description: Gateway Account created time
+    type: string
+    format: date-time
+    readOnly: true
+  updatedTime:
+    description: Gateway Account updated time
+    type: string
+    format: date-time
+    readOnly: true
+  _links:
+    description: The links related to gateway account
+    type: array
+    readOnly: true
+    items:
+      $ref: "#/definitions/Link"

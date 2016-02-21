@@ -1,0 +1,142 @@
+################################################################################
+swagger: "2.0"
+info:
+  version: "2.1"
+  title: "Rebilly REST API"
+  contact:
+    name: "Rebilly API Support"
+    url: "https://www.rebilly.com/contact/"
+    email: "integrations@rebilly.com"
+  license:
+    name: "Rebilly"
+    url: "https://www.rebilly.com/api/license/"
+  termsOfService: "https://www.rebilly.com/terms/"
+################################################################################
+host: "api.rebilly.com"
+basePath: "/v2.1"
+schemes:
+  - "https"
+produces:
+  - "application/json"
+consumes:
+  - "application/json"
+################################################################################
+tags:
+  - name: Introduction
+    description: |
+      The Rebilly API is built on HTTP.  Our API is RESTful.  It has predictable
+      resource URLs.  It returns HTTP response codes to indicate errors.  It also
+      accepts and returns JSON int he HTTP body.  You can use your favorite
+      HTTP/REST library for your programming language to use Rebilly's API, or
+      you can use one of our SDKs (currently available in PHP and C#).
+  - name: Authentication
+    description: |
+      When you sign up for an account, you are given your first API key.
+      You can generate additional API keys, and delete API keys (as you may
+      need to rotate your keys in the future). You authenticate to the
+      Rebilly API by providing your secret key in the request header.
+      Rebilly authenticates each request by searching for the presence
+      of an HTTP header: REB-APIKEY. JWT authentication may be coming soon.
+      Rebilly also has a client-side authentication scheme that uses an
+      apiUser and HMAC-SHA1 signature (only for the Tokens resource), so
+      that you may safely create tokens from the client-side without compromising
+      your secret keys. Never share your secret keys. Keep them guarded and secure.
+      The client-side authentication scheme uses one HTTP header named REB-AUTH.
+  - name: Customer
+    description: |
+      Customers are your customers, sometimes known as accounts, clients,
+      members, patrons, or players in other systems.
+  - name: Contact
+    description: |
+      Contacts belong to Customers. A Customer can have many contacts.
+      Some contacts are associated to Invoices, Payment Cards, Subscriptions
+      and Transactions.
+  - name: Blacklist
+    description: |
+      Your blacklists contains values of customerIds, email addresses,
+      ipAddresses, bank identification numbers, countries or payment cards that
+      you do NOT want to do business with. They are a good tool for managing
+      risk. A blacklist entry that expires after a period of time we call a
+      greylist.
+  - name: Layout
+    description: |
+      Layouts are used to hold collections of plans. A layout can be used to
+      power a pricing page. You can make multiple layouts, and use rules to
+      target them to different audiences.
+  - name: Organization
+    description: |
+      Organizations include the name and address of the entities related to your
+      account. An account may be multi-national, and support multiple
+      organizations. Note: Organizations are share between "Live" and "Sandbox"
+  - name: Payment
+    description: |
+      Collect money from your customers with payments.
+  - name: Product
+    description: |
+      Your product includes digital goods, services, and physical goods.
+  - name: Taxes
+    description: |
+      You can map a product to a tax category.  The tax category is used by
+      tax providers to calculate taxes for invoices.
+  - name: Website
+    description: |
+      Website is your website accepting payments
+  - name: User
+    description: |
+      User operations
+  - name: Session
+    description: |
+      Sessions operations
+################################################################################
+securityDefinitions:
+  ApiKey:
+    description: |
+      When you sign up for an account, you are given your first API key.
+      To do so please follow this link: https://www.rebilly.com/site/signup/
+      Also you can generate additional API keys, and delete API keys (as you may
+      need to rotate your keys in the future).
+    name: "REB-APIKEY"
+    type: apiKey
+    in: header
+################################################################################
+security:
+  - ApiKey: []
+################################################################################
+responses:
+  AccessForbidden:
+    description: "Access forbidden, invalid API-KEY was used"
+    schema:
+      $ref: "#/definitions/Error"
+  NotFound:
+    description: "Resource was not found"
+    schema:
+      $ref: "#/definitions/Error"
+  Conflict:
+    description: "Conflict"
+    schema:
+      $ref: "#/definitions/Error"
+  InvalidDataError:
+    description: "Invalid data was sent"
+    schema:
+      $ref: "#/definitions/Error"
+################################################################################
+parameters:
+  resourceId:
+    name: id
+    in: path
+    description: The resource identifier string
+    type: string
+    required: true
+  collectionLimit:
+    name: limit
+    in: query
+    description: The collection items limit
+    type: integer
+    minimum: 0
+    maximum: 1000
+  collectionOffset:
+    name: offset
+    in: query
+    description: The collection items offset
+    type: integer
+    minimum: 0

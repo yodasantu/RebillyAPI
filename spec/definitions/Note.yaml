@@ -1,0 +1,47 @@
+type: object
+required:
+  - content
+  - relatedType
+  - relatedId
+properties:
+  id:
+    description: The note identifier string
+    type: string
+    readOnly: true
+  createdBy:
+    description: The note's creator
+    type: string
+    readOnly: true
+  content:
+    description: The note's name
+    type: string
+  archived:
+    description: Is the note archived (excluded from List method)
+    type: boolean
+  relatedType:
+    description: The note's related resource type (customer, paymentCard, paymentGateway, subscription, transaction)
+    type: string
+  relatedId:
+    description: The note's related resource ID
+    type: string
+  createdTime:
+    description: Note created time
+    type: string
+    format: date-time
+    readOnly: true
+  updatedTime:
+    description: Note updated time
+    type: string
+    format: date-time
+    readOnly: true
+  archivedTime:
+    description: Note archived time
+    type: string
+    format: date-time
+    readOnly: true
+  _links:
+    description: The links related to note
+    type: array
+    readOnly: true
+    items:
+      $ref: "#/definitions/Link"

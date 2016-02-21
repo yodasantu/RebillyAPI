@@ -1,0 +1,46 @@
+type: object
+required:
+  - type
+  - value
+properties:
+  id:
+    description: The blacklist identifier string
+    type: string
+    readOnly: true
+  type:
+    description: The blacklist type
+    type: string
+    enum:
+      - "paymentCardId"
+      - "customerId"
+      - "email"
+      - "ipAddress"
+      - "country"
+  value:
+    description: The blacklist value
+    type: string
+  ttl:
+    description: The blacklist time to live
+    type: integer
+    minimum: 30
+  expireTime:
+    description: The blacklist expire time
+    type: string
+    format: date-time
+    readOnly: true
+  createdTime:
+    description: The blacklist created time
+    type: string
+    format: date-time
+    readOnly: true
+  updatedTime:
+    description: The blacklist updated time
+    type: string
+    format: date-time
+    readOnly: true
+  _links:
+    description: The links related to blacklist
+    type: array
+    readOnly: true
+    items:
+      $ref: "#/definitions/Link"

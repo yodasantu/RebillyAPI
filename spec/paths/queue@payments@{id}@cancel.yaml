@@ -1,0 +1,17 @@
+parameters:
+  - $ref: "#/parameters/resourceId"
+post:
+  tags:
+    - Payment
+  summary: Cancel a scheduled payment
+  description: |
+    Cancel a scheduled payment with specified identifier string
+  responses:
+    201:
+      description: Successful cancel the payment
+      schema:
+        $ref: "#/definitions/PaymentResponse"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"

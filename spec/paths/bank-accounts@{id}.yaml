@@ -1,0 +1,49 @@
+parameters:
+  - $ref: "#/parameters/resourceId"
+get:
+  tags:
+    - BankAccount
+    - Public
+  summary: Retrieve a Bank Account
+  description: |
+    Retrieve a Bank Account with specified identifier string
+  responses:
+    200:
+      description: BankAccount was retrieved successfully
+      schema:
+        $ref: "#/definitions/BankAccount"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"
+put:
+  tags:
+    - BankAccount
+    - Public
+  summary: Create a BankAccount with predefined ID
+  description: |
+    Create or update a BankAccount with predefined identifier string
+  parameters:
+    - name: body
+      in: body
+      description: BankAccount resource
+      required: true
+      schema:
+        $ref: "#/definitions/BankAccount"
+  responses:
+    200:
+      description: BankAccount was updated
+      schema:
+        $ref: "#/definitions/BankAccount"
+    201:
+      description: BankAccount was created
+      schema:
+        $ref: "#/definitions/BankAccount"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"
+    422:
+      description: Invalid data was sent
+      schema:
+        $ref: "#/definitions/InvalidError"

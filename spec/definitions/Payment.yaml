@@ -1,0 +1,51 @@
+type: object
+required:
+  - websiteId
+  - customerId
+  - currency
+  - amount
+  - method
+  - paymentInstrument
+properties:
+  websiteId:
+    description: The website identifier string
+    type: string
+  customerId:
+    description: The customer identifier string
+    type: string
+  currency:
+    description: The payment currency ISO Alpha code
+    type: string
+  amount:
+    description: The payment amount
+    type: integer
+    format: double
+  scheduledTime:
+    description: The time the payment is scheduled for collection
+    type: string
+    format: date-time
+  invoiceIds:
+    description: The array of invoice identifiers
+    type: array
+    items:
+      type: string
+  method:
+    description: The payment method
+    type: string
+    enum:
+      - "payment_card"
+      - "paypal"
+      - "cash"
+  description:
+    description: The payment description
+    type: string
+    maxLength: 255
+  paymentInstrument:
+    $ref: "#/definitions/PaymentInstrument"
+  customFields:
+    description: Any custom object that must be stored with payment
+    type: string
+  declineInstructions:
+    $ref: "#/definitions/DeclineInstructions"
+  customFields:
+    $ref: "#/definitions/ResourceCustomFields"

@@ -1,0 +1,17 @@
+parameters:
+  - $ref: "#/parameters/resourceId"
+get:
+  tags:
+    - Transaction
+  summary: Retrieve a Transaction
+  description: |
+    Retrieve a Transaction with specified identifier string
+  responses:
+    200:
+      description: Transaction was retrieved successfully
+      schema:
+        $ref: "#/definitions/Transaction"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"

@@ -1,0 +1,60 @@
+parameters:
+  - $ref: "#/parameters/resourceId"
+get:
+  tags:
+    - Gateway Account
+  summary: Retrieve a Gateway Account
+  description: |
+    Retrieve a Gateway Account with specified identifier string
+  responses:
+    200:
+      description: Gateway Account was retrieved successfully
+      schema:
+        $ref: "#/definitions/GatewayAccount"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"
+put:
+  tags:
+    - Gateway Account
+  summary: Create or update a Gateway Account with predefined ID
+  description: |
+    Create or update a GatewayAccount with predefined identifier string
+  parameters:
+    - name: body
+      in: body
+      description: Gateway Account resource
+      required: true
+      schema:
+        $ref: "#/definitions/GatewayAccount"
+  responses:
+    200:
+      description: Gateway Account was updated
+      schema:
+        $ref: "#/definitions/GatewayAccount"
+    201:
+      description: Gateway Account was created
+      schema:
+        $ref: "#/definitions/GatewayAccount"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"
+    422:
+      description: Invalid data was sent
+      schema:
+        $ref: "#/definitions/InvalidError"
+delete:
+  tags:
+    - Gateway Account
+  summary: Delete a Gateway Account
+  description: |
+    Delete a Gateway Account with predefined identifier string
+  responses:
+    204:
+      description: Gateway Account was deleted
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"

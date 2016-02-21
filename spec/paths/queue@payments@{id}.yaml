@@ -1,0 +1,21 @@
+parameters:
+  - $ref: "#/parameters/resourceId"
+get:
+  tags:
+    - Payment
+  summary: Retrieve a scheduled payment
+  description: |
+    Retrieve a payment with specified identifier string
+  responses:
+    200:
+      description: Successful retrieve the payment that still waiting to be processed
+      schema:
+        $ref: "#/definitions/PaymentResponse"
+    303:
+      description: Payment was successfully processed and moved out from queue
+      schema:
+        $ref: "#/definitions/PaymentResponse"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"

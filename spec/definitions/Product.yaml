@@ -1,0 +1,64 @@
+type: object
+description: |
+  Your product includes digital goods, services, and physical goods.  
+  Products appear on invoice line items.  If you set a tax category identifier,
+  taxes will be calculated upon invoice generation.
+example: |
+  {
+    "id": "stringid",
+    "name": "Widget",
+    "description": "Fantastic widget",
+    "taxCategoryId": null,
+    "customFields": [],
+    "createdTime": "2015-08-27 13:45:12",
+    "updatedTime": "2015-08-27 13:45:12",
+    "_links": [
+        {
+          "self": "https://api.rebilly.com/v2.1/products/stringid"
+        }
+    ]
+  }
+properties:
+  id:
+    description: The product identifier string
+    type: string
+    readOnly: true
+    maxLength: 50
+  name:
+    description: The product name
+    type: string
+    maxLength: 255
+  description:
+    description: The product description
+    type: string
+    maxLength: 512
+  taxCategoryId:
+    description: The product's tax category identifier string
+    type: string
+    enum:
+      - "99999"
+      - "20010"
+      - "40030"
+      - "51020"
+      - "51010"
+      - "31000"
+      - "30070"
+  customFields:
+    description: Any custom object that may be stored with product (see custom fields)
+    type: string
+  createdTime:
+    description: The product created time
+    type: string
+    format: date-time
+    readOnly: true
+  updatedTime:
+    description: The product updated time
+    type: string
+    format: date-time
+    readOnly: true
+  _links:
+    description: The links related to product
+    type: array
+    readOnly: true
+    items:
+      $ref: "#/definitions/Link"

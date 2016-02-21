@@ -1,0 +1,39 @@
+type: object
+required:
+  - type
+  - unitPrice
+properties:
+  id:
+    description: The website identifier string
+    type: string
+    readOnly: true
+  type:
+    description: Invoice item's type
+    type: string
+    enum:
+      - "debit"
+      - "credit"
+  unitPrice:
+    description: Invoice item's price
+    type: number
+    format: double
+  quantity:
+    description: Invoice item's quantity
+    type: integer
+  description:
+    description: Invoice item's description
+    type: string
+  periodStartTime:
+    description: Start time
+    type: string
+    format: date-time
+  periodEndTime:
+    description: End time
+    type: string
+    format: date-time
+  _links:
+    description: The links related to invoice item
+    type: array
+    readOnly: true
+    items:
+      $ref: "#/definitions/Link"

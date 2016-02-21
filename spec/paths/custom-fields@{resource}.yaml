@@ -1,0 +1,31 @@
+parameters:
+  -
+    name: resource
+    in: path
+    description: The resource type string
+    type: string
+    required: true
+    enum:
+      - "customers"
+      - "payment-cards"
+      - "subscriptions"
+      - "payments"
+      - "websites"
+      - "contacts"
+get:
+  tags:
+    - Custom Fields
+  summary:
+    Retrieve Custom Fields
+  description: |
+    Retrieve a schema of Custom Fields for the given resource type
+  responses:
+    200:
+      description: A schema of Custom Fields was retrieved successfully
+      schema:
+        description: The list of custom fields
+        type: array
+        items:
+          $ref: "#/definitions/CustomField"
+    401:
+      $ref: "#/responses/AccessForbidden"

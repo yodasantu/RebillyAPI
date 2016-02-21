@@ -1,0 +1,43 @@
+parameters:
+  - $ref: "#/parameters/resourceId"
+get:
+  tags:
+    - Product
+  summary: Retrieve a product
+  description: |
+    Retrieve a product with specified identifier string
+  responses:
+    200:
+      description: Product was retrieved successfully
+      schema:
+        $ref: "#/definitions/Product"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"
+put:
+  tags:
+    - Product
+  summary: Create a product with predefined ID
+  description: |
+    Create a product with predefined identifier string
+  parameters:
+    - name: body
+      in: body
+      description: Product resource
+      required: true
+      schema:
+        $ref: "#/definitions/Product"
+  responses:
+    200:
+      description: Product was updated
+      schema:
+        $ref: "#/definitions/Product"
+    201:
+      description: Product was created
+      schema:
+        $ref: "#/definitions/Product"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    422:
+      $ref: "#/responses/InvalidDataError"

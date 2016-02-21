@@ -1,0 +1,41 @@
+type: object
+required:
+  - name
+properties:
+  id:
+    description: The layout identifier string
+    type: string
+    readOnly: true
+  name:
+    description: The name of the layout string
+    type: string
+  items:
+    description: The array of layout items (planId and starred)
+    type: array
+    items:
+      $ref: "#/definitions/LayoutItem"
+  createdBy:
+    description: The process that created this layout
+    type: string
+    readOnly: true
+  updatedBy:
+    description: The process that updated this layout
+    type: string
+    readOnly: true
+  createdTime:
+    description: Layout created time
+    type: string
+    readOnly: true
+  updatedTime:
+    description: Layout updated time
+    type: string
+    readOnly: true
+  customFields:
+    description: Any custom object that must be stored with layout
+    type: object
+  _links:
+    description: The links related to this layout
+    type: array
+    readOnly: true
+    items:
+      $ref: "#/definitions/Link"

@@ -1,0 +1,40 @@
+get:
+  tags:
+    - Customer
+  summary: Retrieve a list of customers
+  description: |
+    Retrieve a list of customers
+  parameters:
+    - $ref: "#/parameters/collectionLimit"
+    - $ref: "#/parameters/collectionOffset"
+  responses:
+    200:
+      description: A list of Customers was retrieved successfully
+      schema:
+        type: array
+        items:
+          $ref: "#/definitions/Customer"
+    401:
+      $ref: "#/responses/AccessForbidden"
+post:
+  tags:
+    - Customer
+  summary: Create a customer
+  description: |
+    Create a customer
+  parameters:
+    - name: body
+      in: body
+      description: Customer resource
+      required: true
+      schema:
+        $ref: "#/definitions/Customer"
+  responses:
+    201:
+      description: Customer was created
+      schema:
+        $ref: "#/definitions/Customer"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    422:
+      $ref: "#/responses/InvalidDataError"

@@ -1,0 +1,24 @@
+parameters:
+  - $ref: "#/parameters/resourceId"
+post:
+  tags:
+    - Transaction
+  summary: Refund a Transaction
+  description: |
+    Refund a Transaction with specified identifier string
+  parameters:
+    - name: body
+      in: body
+      description: Transaction resource
+      required: true
+      schema:
+       $ref: "#/definitions/TransactionRefund"
+  responses:
+    201:
+      description: Transaction was refunded successfully
+      schema:
+        $ref: "#/definitions/Transaction"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"

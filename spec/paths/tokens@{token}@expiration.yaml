@@ -1,0 +1,32 @@
+parameters:
+  -
+    name: token
+    in: path
+    description: The token identifier string
+    type: string
+    required: true
+post:
+  tags:
+    - PaymentToken
+    - Public
+  summary: Expire a token
+  description: |
+    Expire a token
+  parameters:
+    - name: body
+      in: body
+      description: PaymentToken resource
+      required: true
+      schema:
+        $ref: "#/definitions/PaymentToken"
+  responses:
+    201:
+      description: Token expiration successful
+      schema:
+        $ref: "#/definitions/PaymentToken"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    422:
+      description: Invalid data was sent
+      schema:
+        $ref: "#/definitions/InvalidError"

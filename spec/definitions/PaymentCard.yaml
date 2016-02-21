@@ -1,0 +1,55 @@
+type: object
+properties:
+  id:
+    description: The card identifier string
+    type: string
+    readOnly: true
+  customerId:
+    description: The Customer's ID. Required if card is creating not from Token
+    type: string
+  pan:
+    description: The card PAN (Primary Account Number). Required if card is creating not from Token
+    type: string
+  expYear:
+    description: Card's expiry year. Required if card is creating not from Token
+    type: integer
+  expMonth:
+    description: Card's expiry month. Required if card is creating not from Token
+    type: integer
+  cvv:
+    description: Card's cvv (card verification value). Required if card is creating not from Token
+    type: string
+  billingContactId:
+    description: The Billing Contact ID. Required if card is creating not from Token
+    type: string
+  token:
+    description: PaymentCardToken. Use without any other fields
+    type: string
+  status:
+    description: Payment Card status
+    type: string
+    readOnly: true
+    enum:
+      - "active"
+      - "expired"
+      - "inactive"
+      - "deactivated"
+      - "pending"
+  createdTime:
+    description: Card created time
+    type: string
+    format: date-time
+    readOnly: true
+  updatedTime:
+    description: Card updated time
+    type: string
+    format: date-time
+    readOnly: true
+  _links:
+    description: The links related to card
+    type: array
+    readOnly: true
+    items:
+      $ref: "#/definitions/Link"
+  customFields:
+    $ref: "#/definitions/ResourceCustomFields"

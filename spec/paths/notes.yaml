@@ -1,0 +1,42 @@
+get:
+  tags:
+    - Note
+  summary: Retrieve a list of notes
+  description: |
+    Retrieve a list of notes
+  parameters:
+    - $ref: "#/parameters/collectionLimit"
+    - $ref: "#/parameters/collectionOffset"
+  responses:
+    200:
+      description: A list of Notes was retrieved successfully
+      schema:
+        type: array
+        items:
+          $ref: "#/definitions/Note"
+    401:
+      $ref: "#/responses/AccessForbidden"
+post:
+  tags:
+    - Note
+  summary: Create a note
+  description: |
+    Create a note
+  parameters:
+    - name: body
+      in: body
+      description: Note resource
+      required: true
+      schema:
+        $ref: "#/definitions/Note"
+  responses:
+    201:
+      description: Note was created
+      schema:
+        $ref: "#/definitions/Note"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    422:
+      description: Invalid data was sent
+      schema:
+        $ref: "#/definitions/InvalidError"

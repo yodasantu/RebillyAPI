@@ -1,0 +1,52 @@
+type: object
+required:
+  - name
+properties:
+  id:
+    description: The organization identifier string
+    type: string
+    readOnly: true
+  createdTime:
+    description: The organization created time
+    type: string
+    format: date-time
+    readOnly: true
+  updatedTime:
+    description: The organization updated time
+    type: string
+    format: date-time
+    readOnly: true
+  name:
+    description: The organization name
+    type: string
+    maxLength: 60
+  address:
+    description: The organization street address
+    type: string
+    maxLength: 60
+  address2:
+    description: The organization street address
+    type: string
+    maxLength: 60
+  city:
+    description: The organization city
+    type: string
+    maxLength: 45
+  region:
+    description: The organization region (state)
+    type: string
+    maxLength: 45
+  country:
+    description: The organization country ISO Alpha-2 code
+    type: string
+    pattern: "^[A-Z]{2}$"
+  postalCode:
+    description: The organization postal code
+    type: string
+    maxLength: 10
+  _links:
+    description: The links related to organization
+    type: array
+    readOnly: true
+    items:
+      $ref: "#/definitions/Link"

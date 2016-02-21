@@ -1,0 +1,62 @@
+parameters:
+  - $ref: "#/parameters/resourceId"
+get:
+  tags:
+    - Website
+  summary: Retrieve a website
+  description: |
+    Retrieve a website with specified identifier string
+  responses:
+    200:
+      description: Website was retrieved successfully
+      schema:
+        $ref: "#/definitions/Website"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"
+put:
+  tags:
+    - Website
+  summary: Create or update a website with predefined ID
+  description: |
+    Create or update a website with predefined identifier string
+  parameters:
+    - name: body
+      in: body
+      description: Website resource
+      required: true
+      schema:
+        $ref: "#/definitions/Website"
+  responses:
+    200:
+      description: Website was updated
+      schema:
+        $ref: "#/definitions/Website"
+    201:
+      description: Website was created
+      schema:
+        $ref: "#/definitions/Website"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"
+    422:
+      description: Invalid data was sent
+      schema:
+        $ref: "#/definitions/InvalidError"
+delete:
+  tags:
+    - Website
+  summary: Delete a website
+  description: |
+    Delete a website with predefined identifier string
+  responses:
+    204:
+      description: Website was deleted
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"
+    409:
+      description: Website has related resources and cannot be deleted

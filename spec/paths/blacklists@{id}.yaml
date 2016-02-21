@@ -1,0 +1,56 @@
+parameters:
+  - $ref: "#/parameters/resourceId"
+get:
+  tags:
+    - Blacklist
+  summary: Retrieve a blacklist
+  description: |
+    Retrieve a blacklist with specified identifier string
+  responses:
+    200:
+      description: Blacklist was retrieved successfully
+      schema:
+        $ref: "#/definitions/Blacklist"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"
+put:
+  tags:
+    - Blacklist
+  summary: Create a blacklist with predefined ID
+  description: |
+    Create a blacklist with predefined identifier string
+  parameters:
+    - name: body
+      in: body
+      description: Blacklist resource
+      required: true
+      schema:
+        $ref: "#/definitions/Blacklist"
+  responses:
+    201:
+      description: Blacklist was created
+      schema:
+        $ref: "#/definitions/Blacklist"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    409:
+      description: Blacklist exist and cannot be updated
+      schema:
+        $ref: "#/definitions/Error"
+    422:
+      $ref: "#/responses/InvalidDataError"
+delete:
+  tags:
+    - Blacklist
+  summary: Delete a blacklist
+  description: |
+    Delete a blacklist with predefined identifier string
+  responses:
+    204:
+      description: Blacklist was deleted
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"

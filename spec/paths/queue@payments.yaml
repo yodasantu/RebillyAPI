@@ -1,0 +1,18 @@
+get:
+  tags:
+    - Payment
+  parameters:
+    - $ref: "#/parameters/collectionLimit"
+    - $ref: "#/parameters/collectionOffset"
+  summary: Retrieve a scheduled payment list
+  description: |
+    Retrieve a scheduled payment list
+  responses:
+    200:
+      description: Successful retrieve the payments list that still waiting to be processed
+      schema:
+        type: array
+        items:
+          $ref: "#/definitions/PaymentResponse"
+    401:
+      $ref: "#/responses/AccessForbidden"

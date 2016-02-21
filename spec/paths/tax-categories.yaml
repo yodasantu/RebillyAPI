@@ -1,0 +1,15 @@
+get:
+  tags:
+    - Taxes
+  summary: Retrieve a list of tax categories
+  description: |
+    Retrieve a list of tax categories
+  responses:
+    200:
+      description: A list of tax categories was retrieved successfully
+      schema:
+        type: array
+        items:
+          $ref: "#/definitions/TaxCategory"
+    401:
+      $ref: "#/responses/AccessForbidden"

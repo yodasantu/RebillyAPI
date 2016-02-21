@@ -1,0 +1,45 @@
+parameters:
+  - $ref: "#/parameters/resourceId"
+get:
+  tags:
+    - Layout
+  summary: Retrieve a layout
+  description: |
+    Retrieve a layout with specified identifier string
+  responses:
+    200:
+      description: Layout was retrieved successfully
+      schema:
+        $ref: "#/definitions/Layout"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"
+put:
+  tags:
+    - Layout
+  summary: Create or update a layout with predefined ID
+  description: |
+    Create or update a layout with predefined identifier string
+  parameters:
+    - name: body
+      in: body
+      description: Layout resource
+      required: true
+      schema:
+        $ref: "#/definitions/Layout"
+  responses:
+    200:
+      description: Layout was updated
+      schema:
+        $ref: "#/definitions/Layout"
+    201:
+      description: Layout was created
+      schema:
+        $ref: "#/definitions/Layout"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"
+    422:
+      $ref: "#/responses/InvalidDataError"

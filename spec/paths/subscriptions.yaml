@@ -1,0 +1,42 @@
+get:
+  tags:
+    - Subscription
+  summary: Retrieve a list of subscriptions
+  description: |
+    Retrieve a list of subscriptions
+  parameters:
+    - $ref: "#/parameters/collectionLimit"
+    - $ref: "#/parameters/collectionOffset"
+  responses:
+    200:
+      description: A list of subscriptions was retrieved successfully
+      schema:
+        type: array
+        items:
+          $ref: "#/definitions/Subscription"
+    401:
+      $ref: "#/responses/AccessForbidden"
+post:
+  tags:
+    - Subscription
+  summary: Create a subscription
+  description: |
+    Create a subscription
+  parameters:
+    - name: body
+      in: body
+      description: Subscription resource
+      required: true
+      schema:
+        $ref: "#/definitions/Subscription"
+  responses:
+    201:
+      description: Subscription was created
+      schema:
+        $ref: "#/definitions/Subscription"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    422:
+      description: Invalid data was sent
+      schema:
+        $ref: "#/definitions/InvalidError"

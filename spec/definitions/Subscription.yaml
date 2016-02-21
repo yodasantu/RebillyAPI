@@ -1,0 +1,81 @@
+type: object
+required:
+  - customerId
+  - planId
+  - websiteId
+properties:
+  id:
+    description: The Subscription identifier string
+    type: string
+    readOnly: true
+  customerId:
+    description: Unique id for each customer
+    type: string
+  planId:
+    description: Unique id for each plan
+    type: string
+  websiteId:
+    description:  Unique id for each website
+    type: string
+  initialInvoiceId:
+    description: Unique id for the initial invoice
+    type: string
+  deliveryContactId:
+    description: Unique id for each delivery contact
+    type: string
+  billingContactId:
+    description: Unique id for each billing contact
+    type: string
+  status:
+    description: Subscription status
+    type: string
+    readOnly: true
+  quantity:
+    description: Quantity for each subscription. Default value to 1
+    type: integer
+  autopay:
+    description: Autopay determines if a payment attempt will be automatic
+    type: boolean
+    default: true
+  startTime:
+    description: Subscription start time
+    type: string
+    format: date-time
+    readOnly: true
+  activationTime:
+    description: Subscription activation time
+    type: string
+    format: date-time
+    readOnly: true
+  endTime:
+    description: Subscription end time
+    type: string
+    format: date-time
+    readOnly: true
+  renewalTime:
+    description: Subscription renewal time
+    type: string
+    format: date-time
+  cancelledTime:
+    description: Subscription cancelled time
+    type: string
+    format: date-time
+    readOnly: true
+  createdTime:
+    description: Subscription created time
+    type: string
+    format: date-time
+    readOnly: true
+  updatedTime:
+    description: Subscription updated time
+    type: string
+    format: date-time
+    readOnly: true
+  _links:
+    description: The links related to subscription
+    type: array
+    readOnly: true
+    items:
+      $ref: "#/definitions/Link"
+  customFields:
+    $ref: "#/definitions/ResourceCustomFields"

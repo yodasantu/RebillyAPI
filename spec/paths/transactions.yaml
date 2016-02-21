@@ -1,0 +1,18 @@
+get:
+  tags:
+    - Transaction
+  summary: Retrieve a list of transactions
+  description: |
+    Retrieve a list of transactions
+  parameters:
+    - $ref: "#/parameters/collectionLimit"
+    - $ref: "#/parameters/collectionOffset"
+  responses:
+    200:
+      description: A list of transactions was retrieved successfully
+      schema:
+        type: array
+        items:
+          $ref: "#/definitions/Transaction"
+    401:
+      $ref: "#/responses/AccessForbidden"

@@ -1,0 +1,40 @@
+get:
+  tags:
+    - Layout
+  summary: Retrieve a layout list
+  description: |
+    Retrieve a layout list
+  parameters:
+    - $ref: "#/parameters/collectionLimit"
+    - $ref: "#/parameters/collectionOffset"
+  responses:
+    200:
+      description: Layout list was retrieved successfully
+      schema:
+        type: array
+        items:
+          $ref: "#/definitions/Layout"
+    401:
+      $ref: "#/responses/AccessForbidden"
+post:
+  tags:
+    - Layout
+  summary: Create a layout
+  description: |
+    Create a layout
+  parameters:
+    - name: body
+      in: body
+      description: Layout resource
+      required: true
+      schema:
+        $ref: "#/definitions/Layout"
+  responses:
+    201:
+      description: Layout was created
+      schema:
+        $ref: "#/definitions/Layout"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    422:
+      $ref: "#/responses/InvalidDataError"

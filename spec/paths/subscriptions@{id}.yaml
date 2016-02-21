@@ -1,0 +1,47 @@
+parameters:
+  - $ref: "#/parameters/resourceId"
+get:
+  tags:
+    - Subscription
+  summary: Retrieve a subscription
+  description: |
+    Retrieve a subscription with specified identifier string
+  responses:
+    200:
+      description: Subscription was retrieved successfully
+      schema:
+        $ref: "#/definitions/Subscription"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"
+put:
+  tags:
+    - Subscription
+  summary: Create or update a subscription with predefined ID
+  description: |
+    Create or update a subscription with predefined identifier string
+  parameters:
+    - name: body
+      in: body
+      description: Subscription resource
+      required: true
+      schema:
+        $ref: "#/definitions/Subscription"
+  responses:
+    200:
+      description: Subscription was updated
+      schema:
+        $ref: "#/definitions/Subscription"
+    201:
+      description: Subscription was created
+      schema:
+        $ref: "#/definitions/Subscription"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"
+    422:
+      description: Invalid data was sent
+      schema:
+        $ref: "#/definitions/InvalidError"

@@ -1,0 +1,20 @@
+parameters:
+  - $ref: "#/parameters/resourceId"
+post:
+  tags:
+    - BankAccount
+    - Public
+  summary: Deactivate a Bank Account
+  description: |
+    Deactivate a Bank Account
+  responses:
+    201:
+      description: Deactivated successful
+      schema:
+        $ref: "#/definitions/BankAccount"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    422:
+      description: Invalid data was sent
+      schema:
+        $ref: "#/definitions/InvalidError"

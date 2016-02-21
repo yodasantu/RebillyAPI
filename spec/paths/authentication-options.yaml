@@ -1,0 +1,39 @@
+get:
+  tags:
+    - Customer Authentication
+  summary: Read current authentication options
+  description: |
+    Read current authentication options
+  responses:
+    200:
+      description: Current authentication options was retrieved successfully
+      schema:
+        type: array
+        items:
+          $ref: "#/definitions/AuthenticationOptions"
+    401:
+      $ref: "#/responses/AccessForbidden"
+put:
+  tags:
+    - Customer Authentication
+  summary: Change authentication options
+  description: |
+   Change options
+  parameters:
+    - name: body
+      in: body
+      description: Authentication Options resource
+      required: true
+      schema:
+        $ref: "#/definitions/AuthenticationOptions"
+  responses:
+    200:
+      description: Authentication Options were updated
+      schema:
+        $ref: "#/definitions/AuthenticationOptions"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    422:
+      description: Invalid data was sent
+      schema:
+        $ref: "#/definitions/InvalidError"

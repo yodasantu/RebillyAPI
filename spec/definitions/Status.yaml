@@ -1,0 +1,13 @@
+type: object
+properties:
+  status:
+    description: The API status. If everything is ok - value is 'ok'
+    type: string
+    readOnly: true
+    enum:
+      - "ok"
+  time:
+    description: Current time
+    type: string
+    format: date-time
+    readOnly: true

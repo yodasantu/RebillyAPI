@@ -1,0 +1,68 @@
+type: object
+required:
+  - customerId
+  - websiteId
+  - currency
+properties:
+  id:
+    description: The invoice identifier string
+    type: string
+    readOnly: true
+  customerId:
+    description: The customer's ID
+    type: string
+  websiteId:
+    description: The website's ID
+    type: string
+  currency:
+    description: The currency three letter code
+    type: string
+  billingContactId:
+    description: Invoice's billing contact ID
+    type: string
+    format: email
+  deliveryContactId:
+    description: Invoice's delivery contact ID
+    type: string
+  items:
+    type: array
+    description: Invoice items array
+    readOnly: true
+    items:
+      type: string
+  abandonedTime:
+    description: Invoice abandoned time
+    type: string
+    format: date-time
+    readOnly: true
+  voidedTime:
+    description: Invoice voided time
+    type: string
+    format: date-time
+    readOnly: true
+  closedTime:
+    description: Invoice closed time
+    type: string
+    format: date-time
+    readOnly: true
+  dueTime:
+    description: Invoice due time
+    type: string
+    format: date-time
+    readOnly: true
+  issuedTime:
+    description: Invoice issued time
+    type: string
+    format: date-time
+    readOnly: true
+  createdTime:
+    description: Invoice created time
+    type: string
+    format: date-time
+    readOnly: true
+  _links:
+    description: The links related to invoice
+    type: array
+    readOnly: true
+    items:
+      $ref: "#/definitions/Link"

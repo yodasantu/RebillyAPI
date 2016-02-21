@@ -1,0 +1,42 @@
+get:
+  tags:
+    - Website
+  summary: Retrieve a list of websites
+  description: |
+    Retrieve a list of websites
+  parameters:
+    - $ref: "#/parameters/collectionLimit"
+    - $ref: "#/parameters/collectionOffset"
+  responses:
+    200:
+      description: A list of Websites was retrieved successfully
+      schema:
+        type: array
+        items:
+          $ref: "#/definitions/Website"
+    401:
+      $ref: "#/responses/AccessForbidden"
+post:
+  tags:
+    - Website
+  summary: Create a website
+  description: |
+    Create a website
+  parameters:
+    - name: body
+      in: body
+      description: Website resource
+      required: true
+      schema:
+        $ref: "#/definitions/Website"
+  responses:
+    201:
+      description: Website was created
+      schema:
+        $ref: "#/definitions/Website"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    422:
+      description: Invalid data was sent
+      schema:
+        $ref: "#/definitions/InvalidError"

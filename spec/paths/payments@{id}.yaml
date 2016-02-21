@@ -1,0 +1,47 @@
+parameters:
+  - $ref: "#/parameters/resourceId"
+get:
+  tags:
+    - Payment
+  summary: Retrieve a payment
+  description: |
+    Retrieve a payment with specified identifier string
+  responses:
+    200:
+      description: Payment was retrieved successfully
+      schema:
+        $ref: "#/definitions/PaymentResponse"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"
+put:
+  tags:
+    - Payment
+  summary: Create a payment with predefined ID
+  description: |
+    Make a payment with predefined identifier string
+  parameters:
+    - name: body
+      in: body
+      description: Payment resource
+      required: true
+      schema:
+        $ref: "#/definitions/Payment"
+  responses:
+    201:
+      description: Payment was processed
+      schema:
+        type: array
+        items:
+          $ref: "#/definitions/PaymentResponse"
+    202:
+      description: Payment was accepted
+      schema:
+        $ref: "#/definitions/PaymentResponse"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    422:
+      description: Invalid data was sent
+      schema:
+        $ref: "#/definitions/InvalidError"
