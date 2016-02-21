@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "bower": "^1.7.7",
+    "deploy-to-gh-pages": "^1.0.0",
+    "swagger-repo": "^1.0.0"
+  },
+  "private": true,
+  "scripts": {
+    "deploy": "./scripts/deploy.sh && deploy-to-gh-pages web_deploy",
+    "swagger": "swagger-repo",
+    "test": "swagger-repo validate"
+  }
+}
