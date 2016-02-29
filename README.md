@@ -1,2 +1,2 @@
 # Rebilly REST API Specification
-[![Build Status](https://travis-ci.org/IvanGoncharov/RebillyAPI.svg?branch=master)](https://travis-ci.org/IvanGoncharov/RebillyAPI)
+[![Build Status](https://travis-ci.org/Rebilly/RebillyAPI.svg?branch=master)](https://travis-ci.org/Rebilly/RebillyAPI)
