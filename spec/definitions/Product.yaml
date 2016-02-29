@@ -1,6 +1,6 @@
 type: object
 description: |
-  Your product includes digital goods, services, and physical goods.  
+  Your product includes digital goods, services, and physical goods.
   Products appear on invoice line items.  If you set a tax category identifier,
   taxes will be calculated upon invoice generation.
 example: |
@@ -14,16 +14,16 @@ example: |
     "updatedTime": "2015-08-27 13:45:12",
     "_links": [
         {
-          "self": "https://api.rebilly.com/v2.1/products/stringid"
+          "rel": "self",
+          "href": "https://api.rebilly.com/v2.1/products/stringid"
         }
     ]
   }
 properties:
   id:
     description: The product identifier string
-    type: string
+    $ref: "#/definitions/ResourceId"
     readOnly: true
-    maxLength: 50
   name:
     description: The product name
     type: string
@@ -36,29 +36,22 @@ properties:
     description: The product's tax category identifier string
     type: string
     enum:
-      - "99999"
-      - "20010"
-      - "40030"
-      - "51020"
-      - "51010"
-      - "31000"
-      - "30070"
+      - 99999
+      - 20010
+      - 40030
+      - 51020
+      - 51010
+      - 31000
+      - 30070
   customFields:
     description: Any custom object that may be stored with product (see custom fields)
     type: string
   createdTime:
     description: The product created time
-    type: string
-    format: date-time
-    readOnly: true
+    $ref: "#/definitions/ServerTimestamp"
   updatedTime:
     description: The product updated time
-    type: string
-    format: date-time
-    readOnly: true
+    $ref: "#/definitions/ServerTimestamp"
   _links:
     description: The links related to product
-    type: array
-    readOnly: true
-    items:
-      $ref: "#/definitions/Link"
+    $ref: "#/definitions/Links"

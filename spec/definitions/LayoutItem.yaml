@@ -2,7 +2,7 @@ type: object
 properties:
   planId:
     description: The plan identifier string
-    type: string
+    $ref: "#/definitions/ResourceId"
   starred:
     description: Boolean if the plan should be starred (special callout presentation)
     type: boolean

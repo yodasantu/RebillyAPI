@@ -5,14 +5,14 @@ required:
 properties:
   id:
     description: The website identifier string
-    type: string
+    $ref: "#/definitions/ResourceId"
     readOnly: true
   type:
     description: Invoice item's type
     type: string
     enum:
-      - "debit"
-      - "credit"
+      - debit
+      - credit
   unitPrice:
     description: Invoice item's price
     type: number
@@ -33,7 +33,4 @@ properties:
     format: date-time
   _links:
     description: The links related to invoice item
-    type: array
-    readOnly: true
-    items:
-      $ref: "#/definitions/Link"
+    $ref: "#/definitions/Links"

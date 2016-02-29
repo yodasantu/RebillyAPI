@@ -2,11 +2,11 @@ type: object
 properties:
   id:
     description: The contact identifier string
-    type: string
+    $ref: "#/definitions/ResourceId"
     readOnly: true
   customerId:
-    description: The contact ID
-    type: string
+    description: The contact customer ID
+    $ref: "#/definitions/ResourceId"
   firstName:
     description: The contact first name
     type: string
@@ -45,19 +45,12 @@ properties:
     type: string
   createdTime:
     description: The contact created time
-    type: string
-    format: date-time
-    readOnly: true
+    $ref: "#/definitions/ServerTimestamp"
   updatedTime:
     description: The contact updated time
-    type: string
-    format: date-time
-    readOnly: true
-  _links:
-    description: The links related to contact
-    type: array
-    readOnly: true
-    items:
-      $ref: "#/definitions/Link"
+    $ref: "#/definitions/ServerTimestamp"
   customFields:
     $ref: "#/definitions/ResourceCustomFields"
+  _links:
+    description: The links related to contact
+    $ref: "#/definitions/Links"

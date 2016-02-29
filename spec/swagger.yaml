@@ -118,7 +118,7 @@ responses:
   InvalidDataError:
     description: "Invalid data was sent"
     schema:
-      $ref: "#/definitions/Error"
+      $ref: "#/definitions/InvalidError"
 ################################################################################
 parameters:
   resourceId:

@@ -4,18 +4,14 @@ required:
 properties:
   id:
     description: The organization identifier string
-    type: string
+    $ref: "#/definitions/ResourceId"
     readOnly: true
   createdTime:
     description: The organization created time
-    type: string
-    format: date-time
-    readOnly: true
+    $ref: "#/definitions/ServerTimestamp"
   updatedTime:
     description: The organization updated time
-    type: string
-    format: date-time
-    readOnly: true
+    $ref: "#/definitions/ServerTimestamp"
   name:
     description: The organization name
     type: string
@@ -46,7 +42,4 @@ properties:
     maxLength: 10
   _links:
     description: The links related to organization
-    type: array
-    readOnly: true
-    items:
-      $ref: "#/definitions/Link"
+    $ref: "#/definitions/Links"

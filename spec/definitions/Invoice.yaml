@@ -6,24 +6,23 @@ required:
 properties:
   id:
     description: The invoice identifier string
-    type: string
+    $ref: "#/definitions/ResourceId"
     readOnly: true
   customerId:
     description: The customer's ID
-    type: string
+    $ref: "#/definitions/ResourceId"
   websiteId:
     description: The website's ID
-    type: string
+    $ref: "#/definitions/ResourceId"
   currency:
     description: The currency three letter code
     type: string
   billingContactId:
     description: Invoice's billing contact ID
-    type: string
-    format: email
+    $ref: "#/definitions/ResourceId"
   deliveryContactId:
     description: Invoice's delivery contact ID
-    type: string
+    $ref: "#/definitions/ResourceId"
   items:
     type: array
     description: Invoice items array
@@ -32,37 +31,22 @@ properties:
       type: string
   abandonedTime:
     description: Invoice abandoned time
-    type: string
-    format: date-time
-    readOnly: true
+    $ref: "#/definitions/ServerTimestamp"
   voidedTime:
     description: Invoice voided time
-    type: string
-    format: date-time
-    readOnly: true
+    $ref: "#/definitions/ServerTimestamp"
   closedTime:
     description: Invoice closed time
-    type: string
-    format: date-time
-    readOnly: true
+    $ref: "#/definitions/ServerTimestamp"
   dueTime:
     description: Invoice due time
-    type: string
-    format: date-time
-    readOnly: true
+    $ref: "#/definitions/ServerTimestamp"
   issuedTime:
     description: Invoice issued time
-    type: string
-    format: date-time
-    readOnly: true
+    $ref: "#/definitions/ServerTimestamp"
   createdTime:
     description: Invoice created time
-    type: string
-    format: date-time
-    readOnly: true
+    $ref: "#/definitions/ServerTimestamp"
   _links:
     description: The links related to invoice
-    type: array
-    readOnly: true
-    items:
-      $ref: "#/definitions/Link"
+    $ref: "#/definitions/Links"

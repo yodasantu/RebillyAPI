@@ -5,17 +5,17 @@ required:
 properties:
   id:
     description: The blacklist identifier string
-    type: string
+    $ref: "#/definitions/ResourceId"
     readOnly: true
   type:
     description: The blacklist type
     type: string
     enum:
-      - "paymentCardId"
-      - "customerId"
-      - "email"
-      - "ipAddress"
-      - "country"
+      - paymentCardId
+      - customerId
+      - email
+      - ipAddress
+      - country
   value:
     description: The blacklist value
     type: string
@@ -25,22 +25,13 @@ properties:
     minimum: 30
   expireTime:
     description: The blacklist expire time
-    type: string
-    format: date-time
-    readOnly: true
+    $ref: "#/definitions/ServerTimestamp"
   createdTime:
     description: The blacklist created time
-    type: string
-    format: date-time
-    readOnly: true
+    $ref: "#/definitions/ServerTimestamp"
   updatedTime:
     description: The blacklist updated time
-    type: string
-    format: date-time
-    readOnly: true
+    $ref: "#/definitions/ServerTimestamp"
   _links:
     description: The links related to blacklist
-    type: array
-    readOnly: true
-    items:
-      $ref: "#/definitions/Link"
+    $ref: "#/definitions/Links"

@@ -5,18 +5,18 @@ required:
 properties:
   planId:
     description: The plan identifier string
-    type: string
+    $ref: "#/definitions/ResourceId"
   policy:
     description: Switch policy
     type: string
     enum:
-      - "AT_NEXT_RENEWAL"
-      - "NOW_WITH_PRORATA_REFUND"
-      - "NOW_WITH_PRORATA_CREDIT"
-      - "NOW_WITHOUT_REFUND"
+      - AT_NEXT_RENEWAL
+      - NOW_WITH_PRORATA_REFUND
+      - NOW_WITH_PRORATA_CREDIT
+      - NOW_WITHOUT_REFUND
   websiteId:
     description: The website's ID
-    type: string
+    $ref: "#/definitions/ResourceId"
   quantity:
     description:  Quantity for each subscription. Default value to 1
     type: integer

@@ -9,7 +9,7 @@ required:
 properties:
   id:
     description: The gateway identifier string
-    type: string
+    $ref: "#/definitions/ResourceId"
     readOnly: true
   gatewayName:
     description: The gateway name
@@ -35,13 +35,13 @@ properties:
     type: string
   organizationId:
     description: Organization ID
-    type: string
+    $ref: "#/definitions/ResourceId"
   websites:
     description: Websites IDs
     type: array
     items:
-      type: string
       description: Website ID
+      $ref: "#/definitions/ResourceId"
   acquirerName:
     description: Acquirer name
     type: string
@@ -58,8 +58,8 @@ properties:
     type: string
     enum:
       - null
-      - "integrated"
-      - "external"
+      - integrated
+      - external
   dynamicDescriptor:
     description: True, if Gateway Account allows dynamic descriptor
     type: boolean
@@ -72,27 +72,27 @@ properties:
     description: Accepted payment method
     type: string
     enum:
-      - "payment_card"
-      - "ach"
-      - "paypal"
+      - payment_card
+      - ach
+      - paypal
   paymentCardSchemes:
     description: Accepted payment card brands
     type: array
     items:
       type: string
       enum:
-        - "Visa"
-        - "MasterCard"
-        - "American Express"
-        - "Discover"
-        - "Maestro"
-        - "Solo"
-        - "Electron"
-        - "JCB"
-        - "Voyager"
-        - "Diners Club"
-        - "Switch"
-        - "Laser"
+        - Visa
+        - MasterCard
+        - American Express
+        - Discover
+        - Maestro
+        - Solo
+        - Electron
+        - JCB
+        - Voyager
+        - Diners Club
+        - Switch
+        - Laser
   downtimeStart:
     description: Gateway downtime start
     type: string
@@ -103,17 +103,10 @@ properties:
     format: date-time
   createdTime:
     description: Gateway Account created time
-    type: string
-    format: date-time
-    readOnly: true
+    $ref: "#/definitions/ServerTimestamp"
   updatedTime:
     description: Gateway Account updated time
-    type: string
-    format: date-time
-    readOnly: true
+    $ref: "#/definitions/ServerTimestamp"
   _links:
     description: The links related to gateway account
-    type: array
-    readOnly: true
-    items:
-      $ref: "#/definitions/Link"
+    $ref: "#/definitions/Links"

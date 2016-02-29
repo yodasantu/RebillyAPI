@@ -21,13 +21,13 @@ properties:
       monetary      | A map of 3-letters currency code and amount, e.g. {"currency": "EUR", "amount": 25.30}
     type: string
     enum:
-      - "array"
-      - "boolean"
-      - "datetime"
-      - "integer"
-      - "number"
-      - "string"
-      - "monetary"
+      - array
+      - boolean
+      - datetime
+      - integer
+      - number
+      - string
+      - monetary
   description:
     description: The custom field description
     type: string

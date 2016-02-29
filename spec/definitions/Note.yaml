@@ -6,7 +6,7 @@ required:
 properties:
   id:
     description: The note identifier string
-    type: string
+    $ref: "#/definitions/ResourceId"
     readOnly: true
   createdBy:
     description: The note's creator
@@ -19,29 +19,26 @@ properties:
     description: Is the note archived (excluded from List method)
     type: boolean
   relatedType:
-    description: The note's related resource type (customer, paymentCard, paymentGateway, subscription, transaction)
+    description: The note's related resource type
     type: string
+    enum:
+      - customer
+      - paymentCard
+      - paymentGateway
+      - subscription
+      - transaction
   relatedId:
     description: The note's related resource ID
-    type: string
+    $ref: "#/definitions/ResourceId"
   createdTime:
     description: Note created time
-    type: string
-    format: date-time
-    readOnly: true
+    $ref: "#/definitions/ServerTimestamp"
   updatedTime:
     description: Note updated time
-    type: string
-    format: date-time
-    readOnly: true
+    $ref: "#/definitions/ServerTimestamp"
   archivedTime:
     description: Note archived time
-    type: string
-    format: date-time
-    readOnly: true
+    $ref: "#/definitions/ServerTimestamp"
   _links:
     description: The links related to note
-    type: array
-    readOnly: true
-    items:
-      $ref: "#/definitions/Link"
+    $ref: "#/definitions/Links"

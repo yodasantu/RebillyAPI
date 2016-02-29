@@ -1,0 +1,17 @@
+parameters:
+  - $ref: "#/parameters/resourceId"
+get:
+  tags:
+    - ThreeDSecure
+  summary: Retrieve a ThreeDSecure entry
+  description: |
+    Retrieve a ThreeDSecure entry with specified identifier string
+  responses:
+    200:
+      description: ThreeDSecure entry was retrieved successfully
+      schema:
+        $ref: "#/definitions/ThreeDSecure"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"

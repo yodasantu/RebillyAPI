@@ -4,51 +4,24 @@ required:
 properties:
   id:
     description: The session identifier string
-    type: string
+    $ref: "#/definitions/ResourceId"
     readOnly: true
   token:
     description: The session's token used for authentication
     type: string
   permissions:
-    type: object
-    description: "The session's permissions. It's an array with following format:
-      [
-        {
-          resourceName: '<resourceName>'
-          methods: ['GET', 'POST', 'PUT', 'HEAD', 'DELETE'],
-          id: [<allowed resources ids>]
-        },
-        {
-          resourceName: '<resourceName2>'
-          methods: ['GET', 'POST', 'PUT', 'HEAD', 'DELETE'],
-          id: [<allowed resources ids>]
-        }
-      ]
-
-      It can contain wildcard (*) for any field:
-      [
-        {
-          resourceName: '*'
-          id: '*',
-          methods: '*'
-        }
-      ]
-      "
+    description: The session's permissions. See the format in example
+    $ref: "#/definitions/UserPermissions"
   createdTime:
     description: Session created time
-    type: string
-    format: date-time
+    $ref: "#/definitions/ServerTimestamp"
   updatedTime:
     description: Session updated time
-    type: string
-    format: date-time
+    $ref: "#/definitions/ServerTimestamp"
   expiredTime:
     description: Session expired time. Defaults to one hour
     type: string
     format: date-time
   _links:
     description: The links related to session
-    type: array
-    readOnly: true
-    items:
-      $ref: "#/definitions/Link"
+    $ref: "#/definitions/Links"

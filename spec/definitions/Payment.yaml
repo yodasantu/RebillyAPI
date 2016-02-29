@@ -9,10 +9,10 @@ required:
 properties:
   websiteId:
     description: The website identifier string
-    type: string
+    $ref: "#/definitions/ResourceId"
   customerId:
     description: The customer identifier string
-    type: string
+    $ref: "#/definitions/ResourceId"
   currency:
     description: The payment currency ISO Alpha code
     type: string
@@ -28,14 +28,14 @@ properties:
     description: The array of invoice identifiers
     type: array
     items:
-      type: string
+      $ref: "#/definitions/ResourceId"
   method:
     description: The payment method
     type: string
     enum:
-      - "payment_card"
-      - "paypal"
-      - "cash"
+      - payment_card
+      - paypal
+      - cash
   description:
     description: The payment description
     type: string

@@ -5,9 +5,7 @@ properties:
     type: string
     readOnly: true
     enum:
-      - "ok"
+      - ok
   time:
     description: Current time
-    type: string
-    format: date-time
-    readOnly: true
+    $ref: "#/definitions/ServerTimestamp"

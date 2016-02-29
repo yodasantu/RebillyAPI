@@ -7,7 +7,7 @@ required:
 properties:
   id:
     description: The website identifier string
-    type: string
+    $ref: "#/definitions/ResourceId"
     readOnly: true
   name:
     description: The website's name
@@ -36,17 +36,12 @@ properties:
     type: string
   createdTime:
     description: Website created time
-    type: string
-    format: date-time
+    $ref: "#/definitions/ServerTimestamp"
   updatedTime:
     description: Website updated time
-    type: string
-    format: date-time
-  _links:
-    description: The links related to website
-    type: array
-    readOnly: true
-    items:
-      $ref: "#/definitions/Link"
+    $ref: "#/definitions/ServerTimestamp"
   customFields:
     $ref: "#/definitions/ResourceCustomFields"
+  _links:
+    description: The links related to website
+    $ref: "#/definitions/Links"

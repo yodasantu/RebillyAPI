@@ -7,7 +7,7 @@ required:
 properties:
   id:
     description: The token identifier string
-    type: string
+    $ref: "#/definitions/ResourceId"
     readOnly: true
   method:
     description: Payment token's method
@@ -46,7 +46,4 @@ properties:
     type: string
   _links:
     description: The links related to token
-    type: array
-    readOnly: true
-    items:
-      $ref: "#/definitions/Link"
+    $ref: "#/definitions/Links"

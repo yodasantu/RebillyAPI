@@ -3,9 +3,9 @@ parameters:
 get:
   tags:
     - User
-  summary: Retrieve an user
+  summary: Retrieve user
   description: |
-    Retrieve an user with specified identifier string
+    Retrieve user with specified identifier string
   responses:
     200:
       description: User was retrieved successfully
@@ -18,9 +18,9 @@ get:
 put:
   tags:
     - User
-  summary: Create or update an user with predefined ID
+  summary: Create or update user with predefined ID
   description: |
-    Create or update an user with predefined identifier string
+    Create or update user with predefined identifier string
   parameters:
     - name: body
       in: body
@@ -43,5 +43,20 @@ put:
       $ref: "#/responses/NotFound"
     422:
       description: Invalid data was sent
-      schema:
-        $ref: "#/definitions/InvalidError"
+      $ref: "#/responses/InvalidDataError"
+delete:
+  tags:
+    - User
+  summary: Delete user
+  description: |
+    Delete user with predefined identifier string
+  responses:
+    204:
+      description: User was deleted
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"
+    409:
+      description: User has related resources and cannot be deleted
+      $ref: "#/responses/Conflict"

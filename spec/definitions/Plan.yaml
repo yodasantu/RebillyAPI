@@ -5,7 +5,7 @@ required:
 properties:
   id:
     description: The website identifier string
-    type: string
+    $ref: "#/definitions/ResourceId"
     readOnly: true
   name:
     description: The plan name
@@ -24,7 +24,7 @@ properties:
     type: string
   richDescription:
     description: The plan rich description - supports HTML
-    type: string	
+    type: string
   recurringAmount:
     description: The amount that recurs according to the schedule
     type: number
@@ -33,10 +33,10 @@ properties:
     description: The unit of time
     type: string
     enum:
-      - "day"
-      - "week"
-      - "month"
-      - "year"
+      - day
+      - week
+      - month
+      - year
   recurringPeriodLength:
     description: The length of time (used with the recurringPeriodUnit)
     type: integer
@@ -48,10 +48,10 @@ properties:
     description: The unit of time
     type: string
     enum:
-      - "day"
-      - "week"
-      - "month"
-      - "year"
+      - day
+      - week
+      - month
+      - year
   trialPeriodLength:
     description: The length of time (used with the trialPeriodUnit)
     type: integer
@@ -67,10 +67,10 @@ properties:
     description: The unit of time
     type: string
     enum:
-      - "day"
-      - "week"
-      - "month"
-      - "year"
+      - day
+      - week
+      - month
+      - year
   contractTermLength:
     description: The length that corresponds with the contractTermUnit
     type: integer
@@ -85,15 +85,10 @@ properties:
     type: integer
   createdTime:
     description: Plan created time
-    type: string
-    format: date-time
+    $ref: "#/definitions/ServerTimestamp"
   updatedTime:
     description: Plan updated time
-    type: string
-    format: date-time
+    $ref: "#/definitions/ServerTimestamp"
   _links:
     description: The links related to plan
-    type: array
-    readOnly: true
-    items:
-      $ref: "#/definitions/Link"
+    $ref: "#/definitions/Links"

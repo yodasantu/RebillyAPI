@@ -1,0 +1,23 @@
+post:
+  tags:
+    - ThreeDSecure
+  summary: Create a ThreeDSecure entry
+  description: |
+    Create a ThreeDSecure entry
+  parameters:
+    - name: body
+      in: body
+      description: ThreeDSecure resource
+      required: true
+      schema:
+        $ref: "#/definitions/ThreeDSecure"
+  responses:
+    201:
+      description: ThreeDSecure entry was created
+      schema:
+        $ref: "#/definitions/ThreeDSecure"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    422:
+      description: Invalid data was sent
+      $ref: "#/responses/InvalidDataError"

@@ -1,0 +1,73 @@
+type: object
+required:
+  - enrolled
+  - enrollmentEci
+  - customerId
+  - gatewayAccountId
+  - paymentCardId
+  - websiteId
+  - currency
+  - amount
+properties:
+  id:
+    description: The ThreeDSecure entry identifier string
+    $ref: "#/definitions/ResourceId"
+    readOnly: true
+  customerId:
+    description: Related customer ID
+    $ref: "#/definitions/ResourceId"
+  gatewayAccountId:
+    description: Related gateway account ID
+    $ref: "#/definitions/ResourceId"
+  paymentCardId:
+    description: Related payment card ID
+    $ref: "#/definitions/ResourceId"
+  websiteId:
+    description: Related Website ID
+    $ref: "#/definitions/ResourceId"
+  enrolled:
+    description: Is the cardholder enrolled in 3DSecure
+    type: string
+    enum:
+     - Y
+     - N
+     - U
+  enrollmentEci:
+    description: The ThreeDSecure entry enrollment eci
+    type: string
+  eci:
+    description: The ThreeDSecure entry electronic commerce indicator
+    type: integer
+  cavv:
+    description: The ThreeDSecure entry cardholder authentication verification value
+    type: string
+  xid:
+    description: The ThreeDSecure entry transaction Id
+    type: string
+  payerAuthResponseStatus:
+    description: The ThreeDSecure entry Auth Response Status
+    type: string
+    enum:
+     - Y
+     - N
+     - U
+     - A
+  signatureVerification:
+    description: If signature was verified
+    type: string
+    enum:
+     - Y
+     - N
+  amount:
+    description: Transaction amount
+    type: number
+    format: double
+  currency:
+    description: The currency three letter code
+    type: string
+  createdTime:
+    description: The ThreeDSecure entry created time
+    $ref: "#/definitions/ServerTimestamp"
+  _links:
+    description: The links related to ThreeDSecure entry
+    $ref: "#/definitions/Links"

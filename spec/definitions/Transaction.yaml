@@ -2,32 +2,32 @@ type: object
 properties:
   id:
     description: The transaction identifier string
-    type: string
+    $ref: "#/definitions/ResourceId"
     readOnly: true
   type:
     description: Transaction type
     type: string
     readOnly: true
     enum:
-      - "authorize"
-      - "capture"
-      - "credit"
-      - "refund"
-      - "sale"
-      - "void"
+      - authorize
+      - capture
+      - credit
+      - refund
+      - sale
+      - void
   result:
     description: Transaction result
     type: string
     readOnly: true
     enum:
-      - "approved"
-      - "conn_error"
-      - "declined"
-      - "never_sent"
-      - "pending"
-      - "pending_processor"
-      - "timeout"
-      - "unknown"
+      - approved
+      - conn_error
+      - declined
+      - never_sent
+      - pending
+      - pending_processor
+      - timeout
+      - unknown
   amount:
     description: The transactions's amount
     type: number
@@ -39,7 +39,7 @@ properties:
     readOnly: true
   parentTransactionId:
     description: The transactions's parent ID
-    type: string
+    $ref: "#/definitions/ResourceId"
     readOnly: true
   rebillNumber:
     description: The transactions's rebill number
@@ -47,7 +47,7 @@ properties:
     readOnly: true
   gatewayAccountId:
     description: The transactions's Gateway Account ID
-    type: string
+    $ref: "#/definitions/ResourceId"
     readOnly: true
   gatewayResponse:
     description: The transactions's processor response
@@ -55,29 +55,22 @@ properties:
     readOnly: true
   websiteId:
     description: Website's ID
-    type: string
+    $ref: "#/definitions/ResourceId"
     readOnly: true
   customerId:
     description: Customer's ID
-    type: string
+    $ref: "#/definitions/ResourceId"
     readOnly: true
   paymentCardId:
     description: Payment Card's ID
-    type: string
+    $ref: "#/definitions/ResourceId"
     readOnly: true
   createdTime:
     description: Transaction created time
-    type: string
-    format: date-time
-    readOnly: true
+    $ref: "#/definitions/ServerTimestamp"
   updatedTime:
     description: Transaction updated time
-    type: string
-    format: date-time
-    readOnly: true
+    $ref: "#/definitions/ServerTimestamp"
   _links:
     description: The links related to transaction
-    type: array
-    readOnly: true
-    items:
-      $ref: "#/definitions/Link"
+    $ref: "#/definitions/Links"

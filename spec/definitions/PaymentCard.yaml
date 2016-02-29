@@ -2,11 +2,11 @@ type: object
 properties:
   id:
     description: The card identifier string
-    type: string
+    $ref: "#/definitions/ResourceId"
     readOnly: true
   customerId:
     description: The Customer's ID. Required if card is creating not from Token
-    type: string
+    $ref: "#/definitions/ResourceId"
   pan:
     description: The card PAN (Primary Account Number). Required if card is creating not from Token
     type: string
@@ -21,7 +21,7 @@ properties:
     type: string
   billingContactId:
     description: The Billing Contact ID. Required if card is creating not from Token
-    type: string
+    $ref: "#/definitions/ResourceId"
   token:
     description: PaymentCardToken. Use without any other fields
     type: string
@@ -30,26 +30,19 @@ properties:
     type: string
     readOnly: true
     enum:
-      - "active"
-      - "expired"
-      - "inactive"
-      - "deactivated"
-      - "pending"
+      - active
+      - expired
+      - inactive
+      - deactivated
+      - pending
   createdTime:
     description: Card created time
-    type: string
-    format: date-time
-    readOnly: true
+    $ref: "#/definitions/ServerTimestamp"
   updatedTime:
     description: Card updated time
-    type: string
-    format: date-time
-    readOnly: true
-  _links:
-    description: The links related to card
-    type: array
-    readOnly: true
-    items:
-      $ref: "#/definitions/Link"
+    $ref: "#/definitions/ServerTimestamp"
   customFields:
     $ref: "#/definitions/ResourceCustomFields"
+  _links:
+    description: The links related to card
+    $ref: "#/definitions/Links"

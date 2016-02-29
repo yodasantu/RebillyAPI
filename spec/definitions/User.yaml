@@ -1,8 +1,12 @@
 type: object
+required:
+  - email
+  - firstName
+  - lastName
 properties:
   id:
     description: The user identifier string
-    type: string
+    $ref: "#/definitions/ResourceId"
     readOnly: true
   email:
     description: The user email
@@ -10,27 +14,30 @@ properties:
     format: email
     maxLength: 100
   firstName:
-    description: The user first name
+    description: User's first name
     type: string
   lastName:
-    description: The user last name
+    description: User's last name
     type: string
+  password:
+    description: User's password. If not provided, password reset email will be sent
+    type: string
+    format: password
   phoneNumber:
-    description: The user phone number
+    description: User's phone number
     type: string
+  permissions:
+    description: The user's permissions. See the format in example
+    $ref: "#/definitions/UserPermissions"
   createdTime:
     description: The user created time
-    type: string
-    format: date-time
-    readOnly: true
+    $ref: "#/definitions/ServerTimestamp"
   updatedTime:
     description: The user updated time
-    type: string
-    format: date-time
-    readOnly: true
+    $ref: "#/definitions/ServerTimestamp"
+  loginTime:
+    description: User last login time
+    $ref: "#/definitions/ServerTimestamp"
   _links:
     description: The links related to user
-    type: array
-    readOnly: true
-    items:
-      $ref: "#/definitions/Link"
+    $ref: "#/definitions/Links"

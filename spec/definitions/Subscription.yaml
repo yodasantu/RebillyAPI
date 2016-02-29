@@ -6,26 +6,26 @@ required:
 properties:
   id:
     description: The Subscription identifier string
-    type: string
+    $ref: "#/definitions/ResourceId"
     readOnly: true
   customerId:
     description: Unique id for each customer
-    type: string
+    $ref: "#/definitions/ResourceId"
   planId:
     description: Unique id for each plan
-    type: string
+    $ref: "#/definitions/ResourceId"
   websiteId:
     description:  Unique id for each website
-    type: string
+    $ref: "#/definitions/ResourceId"
   initialInvoiceId:
     description: Unique id for the initial invoice
-    type: string
+    $ref: "#/definitions/ResourceId"
   deliveryContactId:
     description: Unique id for each delivery contact
-    type: string
+    $ref: "#/definitions/ResourceId"
   billingContactId:
     description: Unique id for each billing contact
-    type: string
+    $ref: "#/definitions/ResourceId"
   status:
     description: Subscription status
     type: string
@@ -39,43 +39,28 @@ properties:
     default: true
   startTime:
     description: Subscription start time
-    type: string
-    format: date-time
-    readOnly: true
+    $ref: "#/definitions/ServerTimestamp"
   activationTime:
     description: Subscription activation time
-    type: string
-    format: date-time
-    readOnly: true
+    $ref: "#/definitions/ServerTimestamp"
   endTime:
     description: Subscription end time
-    type: string
-    format: date-time
-    readOnly: true
+    $ref: "#/definitions/ServerTimestamp"
   renewalTime:
     description: Subscription renewal time
     type: string
     format: date-time
   cancelledTime:
     description: Subscription cancelled time
-    type: string
-    format: date-time
-    readOnly: true
+    $ref: "#/definitions/ServerTimestamp"
   createdTime:
     description: Subscription created time
-    type: string
-    format: date-time
-    readOnly: true
+    $ref: "#/definitions/ServerTimestamp"
   updatedTime:
     description: Subscription updated time
-    type: string
-    format: date-time
-    readOnly: true
-  _links:
-    description: The links related to subscription
-    type: array
-    readOnly: true
-    items:
-      $ref: "#/definitions/Link"
+    $ref: "#/definitions/ServerTimestamp"
   customFields:
     $ref: "#/definitions/ResourceCustomFields"
+  _links:
+    description: The links related to subscription
+    $ref: "#/definitions/Links"
