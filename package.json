@@ -8,6 +8,7 @@
   "scripts": {
     "deploy": "./scripts/deploy.sh && deploy-to-gh-pages web_deploy",
     "swagger": "swagger-repo",
-    "test": "swagger-repo validate"
+    "test": "swagger-repo validate",
+    "start": "swagger-repo serve"
   }
 }
