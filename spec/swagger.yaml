@@ -11,6 +11,9 @@ info:
     name: "Rebilly"
     url: "https://www.rebilly.com/api/license/"
   termsOfService: "https://www.rebilly.com/terms/"
+  x-logo:
+    url: 'https://rebilly.github.io/RebillyAPI/logo.png'
+    backgroundColor: '#0033A0'
 ################################################################################
 host: "api.rebilly.com"
 basePath: "/v2.1"
