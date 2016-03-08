@@ -87,6 +87,11 @@ tags:
   - name: Session
     description: |
       Sessions operations
+  - name: Tracking
+    description: |
+      Tracking is a layer for accessing all the API activity (API requests,
+      subscriptions, web hooks,events etc) logs, thus providing easier
+      debugging and issues breadcrumbing.
 ################################################################################
 securityDefinitions:
   ApiKey:
