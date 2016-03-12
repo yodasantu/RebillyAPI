@@ -1,5 +1,5 @@
 type: object
-description: Tracking API log
+description: Tracking API Requests.
 properties:
   id:
     $ref: "#/definitions/ResourceId"
@@ -36,7 +36,7 @@ properties:
     type: string
     readOnly: true
   duration:
-    description: Request duration in millisecond
+    description: Request duration in milliseconds
     type: integer
     readOnly: true
   createdTime:
