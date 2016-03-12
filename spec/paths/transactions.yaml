@@ -1,6 +1,6 @@
 get:
   tags:
-    - Transaction
+    - Transactions
   summary: Retrieve a list of transactions
   description: |
     Retrieve a list of transactions
