@@ -10,11 +10,11 @@ get:
     200:
       description: Successful retrieve the payment that still waiting to be processed
       schema:
-        $ref: "#/definitions/PaymentResponse"
+        $ref: "#/definitions/Payment"
     303:
       description: Payment was successfully processed and moved out from queue
       schema:
-        $ref: "#/definitions/PaymentResponse"
+        $ref: "#/definitions/Payment"
     401:
       $ref: "#/responses/AccessForbidden"
     404:

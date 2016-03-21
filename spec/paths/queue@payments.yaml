@@ -13,6 +13,6 @@ get:
       schema:
         type: array
         items:
-          $ref: "#/definitions/PaymentResponse"
+          $ref: "#/definitions/Payment"
     401:
       $ref: "#/responses/AccessForbidden"
