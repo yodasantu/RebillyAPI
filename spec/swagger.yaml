@@ -12,7 +12,7 @@ info:
     url: "https://www.rebilly.com/api/license/"
   termsOfService: "https://www.rebilly.com/terms/"
   x-logo:
-    url: 'https://rebilly.github.io/RebillyAPI/logo.png'
+    url: 'https://s3.amazonaws.com/RebillyImg/rb_apiLogo.svg'
     backgroundColor: '#0033A0'
 ################################################################################
 host: "api.rebilly.com"
