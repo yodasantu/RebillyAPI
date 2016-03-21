@@ -9,10 +9,12 @@ required:
 properties:
   websiteId:
     description: The website identifier string
-    $ref: "#/definitions/ResourceId"
+    allOf:
+      - $ref: "#/definitions/ResourceId"
   customerId:
     description: The customer identifier string
-    $ref: "#/definitions/ResourceId"
+    allOf:
+      - $ref: "#/definitions/ResourceId"
   currency:
     description: The payment currency ISO Alpha code
     type: string
@@ -42,9 +44,6 @@ properties:
     maxLength: 255
   paymentInstrument:
     $ref: "#/definitions/PaymentInstrument"
-  customFields:
-    description: Any custom object that must be stored with payment
-    type: string
   declineInstructions:
     $ref: "#/definitions/DeclineInstructions"
   customFields:

@@ -4,8 +4,9 @@ allOf:
     properties:
       id:
         description: The payment identifier string
-        $ref: "#/definitions/ResourceId"
         readOnly: true
+        allOf:
+          - $ref: "#/definitions/ResourceId"
       createdBy:
         description: The process that created this payment
         type: string
@@ -17,10 +18,11 @@ allOf:
         type: string
       createdTime:
         description: Payment created time
-        $ref: "#/definitions/ServerTimestamp"
+        allOf:
+          - $ref: "#/definitions/ServerTimestamp"
       updatedTime:
         description: Payment updated time
-        $ref: "#/definitions/ServerTimestamp"
+        allOf:
+          - $ref: "#/definitions/ServerTimestamp"
       _links:
-        description: The links related to payment
         $ref: "#/definitions/Links"
