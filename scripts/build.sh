@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 set -e
 set -x
@@ -11,4 +11,3 @@ cd -
 
 npm run swagger bundle --        -o web_deploy/swagger.json
 npm run swagger bundle -- --yaml -o web_deploy/swagger.yaml
-
