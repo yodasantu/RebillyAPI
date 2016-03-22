@@ -10,7 +10,7 @@ get:
     200:
       description: Payment was retrieved successfully
       schema:
-        $ref: "#/definitions/PaymentResponse"
+        $ref: "#/definitions/Payment"
     401:
       $ref: "#/responses/AccessForbidden"
     404:
@@ -34,11 +34,11 @@ put:
       schema:
         type: array
         items:
-          $ref: "#/definitions/PaymentResponse"
+          $ref: "#/definitions/Payment"
     202:
       description: Payment was accepted
       schema:
-        $ref: "#/definitions/PaymentResponse"
+        $ref: "#/definitions/Payment"
     401:
       $ref: "#/responses/AccessForbidden"
     422:

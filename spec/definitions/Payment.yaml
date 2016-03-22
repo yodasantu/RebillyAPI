@@ -7,12 +7,19 @@ required:
   - method
 discriminator: "method"
 properties:
+  id:
+    description: The payment identifier string
+    readOnly: true
+    allOf:
+      - $ref: "#/definitions/ResourceId"
   websiteId:
     description: The website identifier string
-    $ref: "#/definitions/ResourceId"
+    allOf:
+      - $ref: "#/definitions/ResourceId"
   customerId:
     description: The customer identifier string
-    $ref: "#/definitions/ResourceId"
+    allOf:
+      - $ref: "#/definitions/ResourceId"
   currency:
     description: The payment currency ISO Alpha code
     type: string
@@ -32,6 +39,8 @@ properties:
   method:
     description: Payment Method
     $ref: "#/definitions/Method"
+  paymentInstrument:
+        $ref: "#/definitions/PaymentInstrument"
   description:
     description: The payment description
     type: string
@@ -43,3 +52,22 @@ properties:
     $ref: "#/definitions/DeclineInstructions"
   customFields:
     $ref: "#/definitions/ResourceCustomFields"
+  createdBy:
+    description: The process that created this payment
+    type: string
+  updatedBy:
+    description: The process that updated this payment
+    type: string
+  state:
+    description: Payment state
+    type: string
+  createdTime:
+    description: Payment created time
+    allOf:
+      - $ref: "#/definitions/ServerTimestamp"
+  updatedTime:
+    description: Payment updated time
+    allOf:
+      - $ref: "#/definitions/ServerTimestamp"
+  _links:
+    $ref: "#/definitions/Links"

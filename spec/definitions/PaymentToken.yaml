@@ -7,8 +7,9 @@ required:
 properties:
   id:
     description: The token identifier string
-    $ref: "#/definitions/ResourceId"
     readOnly: true
+    allOf:
+      - $ref: "#/definitions/ResourceId"
   method:
     description: Payment Method
     $ref: "#/definitions/Method"
@@ -45,5 +46,4 @@ properties:
     description: Device fingerprint hash
     type: string
   _links:
-    description: The links related to token
     $ref: "#/definitions/Links"
