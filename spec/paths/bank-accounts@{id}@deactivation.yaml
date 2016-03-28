@@ -2,7 +2,7 @@ parameters:
   - $ref: "#/parameters/resourceId"
 post:
   tags:
-    - Bank Account
+    - Bank Accounts
   summary: Deactivate a Bank Account
   description: |
     Deactivate a Bank Account
