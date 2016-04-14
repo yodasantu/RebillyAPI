@@ -6,6 +6,9 @@ set -x
 cp -R web/ web_deploy/
 
 cd web_deploy
+if [ "$1" == "--update" ]; then
+  bower update
+fi
 bower install
 cd -
 
