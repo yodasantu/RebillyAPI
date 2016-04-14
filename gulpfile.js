@@ -7,7 +7,7 @@ var exec = require('child_process').exec;
 var DIST_DIR = 'web_deploy';
 var SWAGGER_UI_DIST = path.dirname(require.resolve('swagger-ui'));
 
-gulp.task('serve', ['watch'], function() {
+gulp.task('serve', ['build', 'watch'], function() {
   connect.server({
     root: [DIST_DIR],
     livereload: true,
