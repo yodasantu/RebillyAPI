@@ -3,7 +3,8 @@
 set -e
 set -x
 
-cp -R web/ web_deploy/
+mkdir -p web_deploy
+cp -R web/* web_deploy/
 
 cd web_deploy
 if [ "$1" == "--update" ]; then
