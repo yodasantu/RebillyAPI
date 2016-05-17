@@ -9,19 +9,15 @@
 
 ## Usage
 
-1. Run `npm start`
-2. Look full spec:
+- Run `npm start`
+- Look full spec:
     + JSON [http://localhost:3000/swagger.json](http://localhost:3000/swagger.json)
     + YAML [http://localhost:3000/swagger.yaml](http://localhost:3000/swagger.yaml)  (may not be fully functional)
-3. Browse Swagger UI:
+- Browse Swagger UI:
     + JSON [http://localhost:3000/swagger-ui/?url=http://localhost:3000/swagger.json](http://localhost:3000/?url=http://localhost:3000/swagger.json)
     + YAML [http://localhost:3000/swagger-ui/?url=http://localhost:3000/swagger.yaml](http://localhost:3000/?url=http://localhost:3000/swagger.yaml)  (may not be fully functional)
-4. Browse ReDoc: [http://localhost:3000/](http://localhost:3000/)
-5. Import spec by URL in editor, online or local (you should uncheck "Use CORS proxy" in the model)
-
-## Update web dependencies
-
-To update to the latest version of ReDoc run: `npm run build -- --update`
+- Browse ReDoc: [http://localhost:3000/](http://localhost:3000/)
+- Import spec by URL in editor, online or local (you should uncheck "Use CORS proxy" in the model)
 
 ## Tests
 
