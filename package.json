@@ -1,4 +1,6 @@
 {
+  "name": "rebilly-openapi-spec",
+  "version": "0.0.1",
   "dependencies": {
     "bower": "^1.7.7",
     "cors": "^2.7.1",
