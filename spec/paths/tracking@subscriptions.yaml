@@ -1,13 +1,13 @@
 get:
   tags:
     - Tracking
-  summary: Retrieve a list of tracking API logs
+  summary: Retrieve a list of tracking subscription logs
   parameters:
     - $ref: "#/parameters/collectionLimit"
     - $ref: "#/parameters/collectionOffset"
   responses:
     200:
-      description: Tracking API logs was retrieved successfully
+      description: Tracking subscription logs was retrieved successfully
       headers:
         X-Rate-Limit-Limit:
           $ref: "#/headers/X-Rate-Limit-Limit"
@@ -24,6 +24,6 @@ get:
       schema:
         type: array
         items:
-          $ref: "#/definitions/Tracking/ApiTracking"
+          $ref: "#/definitions/Tracking/SubscriptionTracking"
     401:
       $ref: "#/responses/AccessForbidden"
