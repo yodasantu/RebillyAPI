@@ -1,0 +1,31 @@
+type: object
+properties:
+  attempts:
+    type: array
+    minItems: 1
+    items:
+      type: object
+      properties:
+        scheduleInstruction:
+          $ref: "#/definitions/ScheduleMethod"
+        paymentInstruction:
+          $ref: "#/definitions/AmountAdjustment"
+      required:
+        - scheduleInstruction
+        - paymentInstruction
+  afterAttemptPolicy:
+    description: The policy on the attempt finishes
+    type: string
+    enum:
+      - "none"
+      - "change-renewal-time"
+  afterDunningEndPolicy:
+    description: The policy on the dunning ends
+    type: string
+    enum:
+      - "none"
+      - "cancel-subscription"
+required:
+  - attempts
+  - afterAttemptPolicy
+  - afterDunningEndPolicy
