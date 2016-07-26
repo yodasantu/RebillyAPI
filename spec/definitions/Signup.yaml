@@ -6,6 +6,7 @@ required:
   - lastName
   - businessPhone
   - password
+  - website
 properties:
   email:
     description: The user email
@@ -28,3 +29,20 @@ properties:
     description: The user password
     type: string
     format: password
+  website:
+    description: The user's website address
+    type: string
+  currencies:
+    description: An array of currencies codes
+    type: array
+    default: ['USD']
+    items:
+      description: 3 letters ISO 4217 currency code
+      type: string
+  merchantCategoryCode:
+    description: An array of merchant cateogries codes. Defaults to "Computer Software Stores"
+    type: array
+    default: [5734]
+    items:
+      description: Merchant category code
+      type: integer
