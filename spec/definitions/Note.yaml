@@ -24,8 +24,8 @@ properties:
     type: string
     enum:
       - customer
-      - paymentCard
-      - paymentGateway
+      - payment-card
+      - payment-gateway
       - subscription
       - transaction
   relatedId:

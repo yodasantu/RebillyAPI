@@ -11,10 +11,9 @@ properties:
     description: Switch policy
     type: string
     enum:
-      - AT_NEXT_RENEWAL
-      - NOW_WITH_PRORATA_REFUND
-      - NOW_WITH_PRORATA_CREDIT
-      - NOW_WITHOUT_REFUND
+      - at-next-renewal
+      - now-with-prorata-credit
+      - now
   websiteId:
     description: The website's ID
     allOf:

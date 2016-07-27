@@ -65,7 +65,7 @@ properties:
     enum:
       - "active"
       - "inactive"
-      - "pendingConfirmation"
+      - "pending-confirmation"
     readOnly: true
   country:
       description: The user country setting - two letter code

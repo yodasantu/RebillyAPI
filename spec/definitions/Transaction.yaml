@@ -22,11 +22,11 @@ properties:
     readOnly: true
     enum:
       - approved
-      - conn_error
+      - conn-error
       - declined
-      - never_sent
+      - never-sent
       - pending
-      - pending_processor
+      - pending-processor
       - timeout
       - unknown
   amount:

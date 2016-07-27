@@ -21,6 +21,6 @@ properties:
     description: The tax category maps to a provider
     type: string
     enum:
-      - TaxJar
+      - tax-jar
   _links:
     $ref: "#/definitions/Links"

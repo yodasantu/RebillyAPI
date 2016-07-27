@@ -99,6 +99,7 @@ properties:
         - Diners Club
         - Switch
         - Laser
+        - China Unionpay
   downtimeStart:
     description: Gateway downtime start
     type: string

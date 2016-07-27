@@ -6,8 +6,6 @@ properties:
     description: Cancel policy
     type: string
     enum:
-      - AT_NEXT_RENEWAL
-      - NOW_WITH_PRORATA_REFUND
-      - NOW_WITH_PRORATA_CREDIT
-      - NOW_WITHOUT_REFUND
-      - NOW_WITH_FULL_REFUND
+      - at-next-renewal
+      - now-with-prorata-credit
+      - now
