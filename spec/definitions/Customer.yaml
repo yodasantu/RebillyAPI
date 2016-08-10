@@ -20,10 +20,8 @@ properties:
     description: The customer IP
     type: string
     format: ipv4
-  defaultCardId:
-    description: The customer default card ID
-    allOf:
-      - $ref: "#/definitions/ResourceId"
+  defaultPaymentInstrument:
+    $ref: "#/definitions/PaymentInstrument"
   createdTime:
     description: The customer created time
     allOf:
