@@ -1,0 +1,22 @@
+description: PayR Gateway config
+allOf:
+  -
+    $ref: "#/definitions/GatewayAccount"
+  -
+    type: "object"
+    required:
+     - "gatewayConfig"
+    properties:
+      gatewayConfig:
+        type: object
+        properties:
+          clientId:
+            type: string
+            description: PayR Gateway client ID
+          secretWord:
+            type: string
+            description: PayR Gateway secret word
+            format: password
+        required:
+          - "clientId"
+          - "secretWord"
