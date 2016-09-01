@@ -61,6 +61,14 @@ properties:
     description: The transactions's processor response
     type: string
     readOnly: true
+  gatewayResponseCode:
+    description: The gateway's response code
+    type: string
+    readOnly: true
+  gatewayResponseMessage:
+    description: The gateway's response message
+    type: string
+    readOnly: true
   websiteId:
     description: Website's ID
     allOf:
