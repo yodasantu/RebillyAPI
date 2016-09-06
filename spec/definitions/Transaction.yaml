@@ -57,18 +57,47 @@ properties:
     allOf:
       - $ref: "#/definitions/ResourceId"
     readOnly: true
-  gatewayResponse:
-    description: The transactions's processor response
-    type: string
+  gateway:
+    type: object
+    description: The related gateway information
     readOnly: true
-  gatewayResponseCode:
-    description: The gateway's response code
-    type: string
-    readOnly: true
-  gatewayResponseMessage:
-    description: The gateway's response message
-    type: string
-    readOnly: true
+    properties:
+      response:
+        description: The gateway's response
+        type: object
+        properties:
+          code:
+            description: The gateway's response code
+            type: string
+          message:
+            description: The gateway's response message
+            type: string
+          originalCode:
+            description: The raw, unmapped gateway's response code
+            type: string
+          originalMessage:
+            description: The raw, unmapped gateway's response message
+            type: string
+      avsResponse:
+        description: The AVS gateway's response
+        type: object
+        properties:
+          code:
+            description: The raw response code
+            type: string
+          message:
+            description: The raw response message
+            type: string
+      cvvResponse:
+        description: The CVV gateway's response
+        type: object
+        properties:
+          code:
+            description: The raw response code
+            type: string
+          message:
+            description: The raw response message
+            type: string
   websiteId:
     description: Website's ID
     allOf:
