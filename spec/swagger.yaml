@@ -100,6 +100,19 @@ tags:
     description: |
       If system events can't solve your problems, you are able to create a custom event
       that can fit your requirements, and use it to solve your own business logic.
+  - name: Custom Rules
+    description: |
+      "Don't conform to the rules. Create the rules."
+      Rather than adapt your workflow and business, Rebilly can align with your business
+      objectives by giving you the power to automate certain behaviors when key events happen.
+      You can use this to your advantage to mitigate risk, maximize conversions and minimize costs.
+      You have the controls at your fingertips here. If you need more control,
+      or help dialing in on a strategy, feel free to contact us.
+
+      When an event happens, it triggers the evaluation of conditions (that you set up),
+      in order from top to bottom. If the condition is met, the corresponding actions are executed.
+      The conditions continue to be checked until either all of the conditions have been executed,
+      or a special "stop" action is executed.
   - name: Custom Fields
     description: |
       Create additional custom fields for particular resources.  You may name,
@@ -178,6 +191,19 @@ tags:
     description: |
       The Rebilly Reporting API is currently experimental.  You may see
       the [Reports API Documentation here](https://rebilly.github.io/RebillyReportsAPI/).
+  - name: Rules
+    description: |
+      "Don't conform to the rules. Create the rules."
+      Rather than adapt your workflow and business, Rebilly can align with your business
+      objectives by giving you the power to automate certain behaviors when key events happen.
+      You can use this to your advantage to mitigate risk, maximize conversions and minimize costs.
+      You have the controls at your fingertips here. If you need more control,
+      or help dialing in on a strategy, feel free to contact us.
+
+      When an event happens, it triggers the evaluation of conditions (that you set up),
+      in order from top to bottom. If the condition is met, the corresponding actions are executed.
+      The conditions continue to be checked until either all of the conditions have been executed,
+      or a special "stop" action is executed.
   - name: Sessions
     description: |
       A session contains a token, which is a JSON Web Token.  The token is created
@@ -319,6 +345,20 @@ parameters:
     name: expand
     in: query
     type: string
+    description: Expand response to get full related object intead of ID.  See the expand guide for more info.
+  systemEventType:
+    name: eventType
+    in: path
+    description: The event type
+    type: string
+    required: true
+  rulesVersion:
+    name: version
+    in: path
+    description: The rule set version
+    type: integer
+    required: true
+    minimum: 1
     description: Expand response to get full related object instead of ID.  See the expand guide for more info.
   hash:
     name: hash
