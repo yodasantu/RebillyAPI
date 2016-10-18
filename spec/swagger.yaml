@@ -89,6 +89,9 @@ tags:
       Contacts belong to Customers. A Customer can have many contacts.
       Some contacts are associated to Invoices, Payment Cards, Subscriptions
       and Transactions.
+  - name: Coupons
+    description: |
+      Coupons allows to apply different types of discounts to Invoices, Subscriptions and Plans.
   - name: Customers
     description: |
       Customers are your customers, sometimes known as accounts, clients,
@@ -325,6 +328,11 @@ parameters:
     in: query
     type: string
     description: The partial search of the text fields.
+  collectionCriteria:
+    name: criteria
+    in: query
+    type: string
+    description: The json criteria for collection
   collectionSort:
     name: sort
     in: query

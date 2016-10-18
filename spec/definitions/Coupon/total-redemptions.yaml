@@ -1,0 +1,12 @@
+description: Total quantity restrictions
+allOf:
+  -
+    $ref: "#/definitions/CouponRestriction"
+  -
+    type: "object"
+    required:
+     - "quantity"
+    properties:
+      quantity:
+        type: integer
+        description: Restriction total quantity
