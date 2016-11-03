@@ -82,6 +82,9 @@ properties:
           message:
             description: The gateway's response message
             type: string
+          type:
+            description: The gateway's response type
+            type: string
           originalCode:
             description: The raw, unmapped gateway's response code
             type: string
