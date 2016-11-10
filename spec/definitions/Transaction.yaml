@@ -53,6 +53,12 @@ properties:
     allOf:
       - $ref: "#/definitions/ResourceId"
     readOnly: true
+  childrenTransactions:
+    description: The children transactions IDs
+    readOnly: true
+    type: array
+    items:
+      - $ref: "#/definitions/ResourceId"
   rebillNumber:
     description: The transactions's rebill number
     type: integer
@@ -137,6 +143,12 @@ properties:
     description: Acquirer name, available only when method is 'payment_card', else null
     type: string
     readOnly: true
+  velocity:
+    description: The number of transactions by the same customer in the past 24 hours
+    type: number
+    format: integer
+  paymentInstrument:
+    $ref: "#/definitions/PaymentInstrument"
   hasDcc:
     description: True if transaction has Dynamic Currency Conversion applied
     type: boolean
