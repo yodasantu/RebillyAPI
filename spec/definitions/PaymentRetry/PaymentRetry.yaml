@@ -18,7 +18,7 @@ properties:
     type: string
     enum:
       - "none"
-      - "change-subscription-renewal-time"
+      - "change-renewal-time"
   afterRetryEndPolicy:
     description: The policy on the retry ends
     type: string
