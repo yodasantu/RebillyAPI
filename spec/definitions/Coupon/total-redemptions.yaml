@@ -1,4 +1,4 @@
-description: discounts-per-redemption restrictions
+description: total-redemptions restrictions
 allOf:
   -
     $ref: "#/definitions/GenericRestriction"
@@ -9,4 +9,4 @@ allOf:
     properties:
       quantity:
         type: integer
-        description: Restriction quantity
+        description: Total redemptions quantity
