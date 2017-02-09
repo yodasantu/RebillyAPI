@@ -166,6 +166,9 @@ properties:
     readOnly: true
   paymentInstrument:
     $ref: "#/definitions/PaymentInstrument"
+  billingContactId:
+    description: Billing Contact ID
+    type: string
   hasDcc:
     description: True if transaction has Dynamic Currency Conversion applied
     type: boolean
