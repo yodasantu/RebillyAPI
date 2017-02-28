@@ -1,4 +1,4 @@
-description: The Merchant plug-in Name
+description: The Merchant plug-in Name. 'Other' is used for external MPI integrations - see the 3dsecure API resource.
 type: string
 enum:
  - PayvisionMpi
