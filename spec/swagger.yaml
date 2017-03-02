@@ -66,9 +66,9 @@ basePath: "/v2.1"
 schemes:
   - "https"
 x-servers:
-  - url: //api.rebilly.com
+  - url: //api.rebilly.com/v2.1
     description: Live Server
-  - url: //api-sandbox.rebilly.com
+  - url: //api-sandbox.rebilly.com/v2.1
     description: Sandbox Server
 produces:
   - "application/json"
