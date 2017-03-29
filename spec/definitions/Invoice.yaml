@@ -30,6 +30,11 @@ properties:
     type: number
     format: double
     readOnly: true
+  shippingAmount:
+      description: The Invoice's shipping amount
+      type: number
+      format: double
+      readOnly: true
   billingContactId:
     description: Invoice's billing contact ID
     allOf:
@@ -47,6 +52,13 @@ properties:
     readOnly: true
     items:
       type: string
+  taxes:
+    type: array
+    description: Taxes applied to this invoice
+    readOnly: true
+    items:
+      allOf:
+        - $ref: "#/definitions/InvoiceTax"
   discounts:
     type: array
     description: Discounts applied
