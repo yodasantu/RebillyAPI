@@ -35,14 +35,14 @@ properties:
       type: number
       format: double
       readOnly: true
-  billingContactId:
-    description: Invoice's billing contact ID
+  billingAddress:
+    description: Invoice's billing address
     allOf:
-      - $ref: "#/definitions/ResourceId"
-  deliveryContactId:
-    description: Invoice's delivery contact ID
+      - $ref: "#/definitions/ContactObject"
+  deliveryAddress:
+    description: Invoice's delivery address
     allOf:
-      - $ref: "#/definitions/ResourceId"
+      - $ref: "#/definitions/ContactObject"
   notes:
     description: Notes for the customer which will display on the invoice
     type: string
