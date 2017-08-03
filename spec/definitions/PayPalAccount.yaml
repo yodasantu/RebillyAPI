@@ -10,7 +10,7 @@ properties:
     allOf:
       - $ref: "#/definitions/ResourceId"
   billingAddress:
-    description: Billing Address. Required if PayPal account is not created from Token
+    description: The Customer's Billing Address.
     allOf:
       - $ref: "#/definitions/ContactObject"
   username:
@@ -19,6 +19,7 @@ properties:
   status:
     description: PayPal Account status
     type: string
+    readOnly: true
     enum:
       - inactive
       - active
@@ -38,6 +39,12 @@ properties:
     description: The links related to resource
     readOnly: true
     minItems: 1
-    maxItems: 1
+    maxItems: 4
     items:
       - $ref: "#/definitions/SelfLink"
+      - $ref: "#/definitions/CustomerLink"
+      - $ref: "#/definitions/ContactLink"
+      - $ref: "#/definitions/ApprovalUrlLink"
+required:
+  - customerId
+  - billingAddress
