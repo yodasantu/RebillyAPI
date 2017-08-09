@@ -28,6 +28,41 @@ properties:
     description: Internet Service Provider name, if available
     type: string
     readOnly: true
+  country:
+    description: Country ISO Alpha-2 code for specified ipAddress
+    maxLength: 2
+    type: string
+    readOnly: true
+    example: "US"
+  city:
+    description: City for specified ipAddress
+    type: string
+    readOnly: true
+    example: "New York"
+  latitude:
+    description: Latitude for specified ipAddress
+    type: number
+    format: double
+    readOnly: true
+  longitude:
+    description: Longitude for specified ipAddress
+    type: number
+    format: double
+    readOnly: true
+  postalCode:
+    description: Postal code for specified ipAddress
+    type: string
+    maxLength: 10
+    readOnly: true
+  timeZone:
+    description: Time zone for specified ipAddress
+    type: string
+    readOnly: true
+    example: "America/New_York"
+  accuracyRadius:
+    description: Accuracy radius for specified ipAddress (kilometers)
+    type: integer
+    readOnly: true
   fingerprint:
     description: The fingerprint
     type: string
