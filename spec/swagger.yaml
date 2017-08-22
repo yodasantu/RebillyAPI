@@ -205,7 +205,7 @@ tags:
       Payment tokens are used to reduce the scope of PCI DSS compliance.  A payment
       token can be made using a different authentication scheme (refer to the public key
       authentication scheme in the Authentication section), which allows you to
-      create a payment tokeng directly from the browser, bypassing the need to send
+      create a payment token directly from the browser, bypassing the need to send
       sensitive cardholder info to your servers.  We recommend using this with our
       Rebilly.js library, which helps you wire a form into this API resource and create
       payment tokens.
