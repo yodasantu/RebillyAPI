@@ -23,6 +23,7 @@ enum:
  - Gpaysafe
  - iCheque
  - Ilixium
+ - Intuit
  - JetPay
  - Jeton
  - Moneris
