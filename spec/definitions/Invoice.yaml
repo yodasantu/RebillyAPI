@@ -128,7 +128,5 @@ properties:
       - $ref: "#/definitions/SelfLink"
       - $ref: "#/definitions/CustomerLink"
       - $ref: "#/definitions/WebsiteLink"
-      - $ref: "#/definitions/BillingContactLink"
-      - $ref: "#/definitions/DeliveryContactLink"
       - $ref: "#/definitions/OrganizationLink"
       - $ref: "#/definitions/LeadSourceLink"
