@@ -2,13 +2,14 @@ parameters:
   - $ref: "#/parameters/resourceId"
 post:
   tags:
-    - Bank Accounts
-  summary: Deactivate a Bank Account
+    - Gateway Accounts
+  summary: Enable a Gateway Account
   description: |
-    Deactivate a Bank Account
+    Enable a gateway account with specified identifier string.
+    Enabled gateway accounts have their "status" attribute set to "active" and can process transactions.
   responses:
     201:
-      description: Deactivated successfully
+      description: Enabled successfully
       headers:
         Rate-Limit-Limit:
           $ref: "#/headers/Rate-Limit-Limit"
@@ -17,8 +18,10 @@ post:
         Rate-Limit-Reset:
           $ref: "#/headers/Rate-Limit-Reset"
       schema:
-        $ref: "#/definitions/BankAccount"
+        $ref: "#/definitions/GatewayAccount"
     401:
       $ref: "#/responses/AccessForbidden"
     404:
       $ref: "#/responses/NotFound"
+    409:
+      description: Gateway account is pending activation and cannot be enabled.
