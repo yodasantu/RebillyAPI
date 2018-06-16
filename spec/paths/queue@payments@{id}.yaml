@@ -37,6 +37,8 @@ put:
   tags:
     - Payments
   summary: Update pending payment
+  description: |-
+    Update pending payment.  It can only be updated if the [create `/payments` request](#/paths/~1payments/post) has a status of `scheduled`.
   parameters:
     - name: body
       in: body
