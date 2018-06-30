@@ -1,0 +1,35 @@
+parameters:
+  - $ref: "#/parameters/resourceId"
+post:
+  tags:
+    - KYC Documents
+  summary: Reject a KYC document
+  description: |
+    Manually override automated status and reject the document
+  parameters:
+    - name: body
+      in: body
+      description: KYC document resource
+      required: true
+      schema:
+        $ref: "#/definitions/KycDocumentRejection"
+  responses:
+    201:
+      description: KYC document rejection was created
+      headers:
+        Rate-Limit-Limit:
+          $ref: "#/headers/Rate-Limit-Limit"
+        Rate-Limit-Remaining:
+          $ref: "#/headers/Rate-Limit-Remaining"
+        Rate-Limit-Reset:
+          $ref: "#/headers/Rate-Limit-Reset"
+      schema:
+        $ref: "#/definitions/KycDocument"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"
+    422:
+      description: Invalid data was sent
+      schema:
+        $ref: "#/definitions/InvalidError"
