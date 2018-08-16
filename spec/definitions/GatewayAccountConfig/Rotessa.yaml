@@ -1,0 +1,19 @@
+description: Rotessa config
+allOf:
+  -
+    $ref: "#/definitions/GatewayAccount"
+  -
+    type: "object"
+    required:
+     - "gatewayConfig"
+    properties:
+      gatewayConfig:
+        type: object
+        description: Rotessa credentials object
+        properties:
+          apiKey:
+            type: string
+            description: Rotessa api key
+            format: password
+        required:
+          - "apiKey"
