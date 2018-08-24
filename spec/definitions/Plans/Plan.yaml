@@ -3,6 +3,7 @@ required:
   - name
   - currency
   - productId
+  - pricing
 properties:
   id:
     description: The plan identifier string
@@ -19,6 +20,14 @@ properties:
     description: The related product identifier string
     allOf:
       - $ref: "#/definitions/ResourceId"
+  productOptions:
+    type: object
+    description: Name-value pairs to specify the product options.
+    additionalProperties:
+      type: string
+    example:
+      color: red
+      size: xxl
   currency:
     description: Currency (three letter ISO 4217 code)
     type: string
@@ -26,43 +35,40 @@ properties:
     description: Currency sign
     readOnly: true
     type: string
-  recurringAmount:
-    description: The amount that recurs according to the schedule
-    type: number
-    format: double
-  recurringPeriodUnit:
-    description: The unit of time
-    type: string
-    enum:
-      - day
-      - week
-      - month
-      - year
-  recurringPeriodLength:
-    description: The length of time (used with the `recurringPeriodUnit`)
-    type: integer
-  recurringPeriodLimit:
-    description: The number of times a subscription will rebill until the contract is over
-    type: integer
-  trialAmount:
-    description: The amount of a trial - 0 is a valid value (for free)
-    type: number
-    format: double
-  trialPeriodUnit:
-    description: The unit of time
-    type: string
-    enum:
-      - day
-      - week
-      - month
-      - year
-  trialPeriodLength:
-    description: The length of time (used with the trialPeriodUnit)
-    type: integer
-  setupAmount:
-    description: The amount of a setup - 0 is a valid value (for free)
-    type: number
-    format: double
+  pricing:
+    $ref: "#/definitions/PlanPriceFormula"
+  recurringInterval:
+    description: The billing interval. For a one-time item, use `null`.
+    allOf:
+      - $ref: "#/definitions/PlanPeriod"
+      - type: object
+        properties:
+          limit:
+            description: The number of invoices this subscription will generate (if 1, it will not generate any beyond the initial subscription creation).  For example, set this property to `12`, when the `periodUnit` is month and the `periodLength` is 1, for a 1 year contract billed monthly.
+            type: integer
+  trial:
+    type: object
+    description: The trial. Set `null` if no trial.
+    required:
+      - price
+      - period
+    properties:
+      price:
+        description: The price of the trial. For a free trial, use `0`.
+        type: number
+        format: double
+      period:
+        $ref: "#/definitions/PlanPeriod"
+  setup:
+    type: object
+    description: The setup. Set `null` if no setup.
+    required:
+      - price
+    properties:
+      price:
+        description: The price of a setup - 0 is a valid value (for free)
+        type: number
+        format: double
   description:
     description: The plan description (deprecated)
     type: string
