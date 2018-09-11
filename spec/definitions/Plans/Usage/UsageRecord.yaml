@@ -23,8 +23,10 @@ properties:
     type: integer
   usageTime:
     description: |
-      The time for the usage. This time must be within the current reporting window of the subscription.
-      The reporting window ends three hours after renewal time.
+      The time for the usage. The usageTime must fall within an unbilled period.
+      A reporting window is open for three hours after a billing period closes.
+      At that time, the billing period will be closed for further reporting.
+      Any further usage data would need to be reported in the next billing period.
     type: string
     format: date-time
   invoiceId:
@@ -37,7 +39,8 @@ properties:
     allOf:
     - $ref: "#/definitions/ServerTimestamp"
   createdTime:
-    description: Record created time
+    description: |
+      Record created time. The record must be created within the reporting window for the usage time's corresponding billing period.
     allOf:
     - $ref: "#/definitions/ServerTimestamp"
   updatedTime:
