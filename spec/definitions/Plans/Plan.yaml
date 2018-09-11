@@ -69,6 +69,20 @@ properties:
         description: The price of a setup - 0 is a valid value (for free)
         type: number
         format: double
+  meteredBilling:
+    type: object
+    required:
+      - aggregationMethod
+    properties:
+      aggregationMethod:
+        description: |
+          Define a usage aggregation method of metered billing.
+          Allowed values are `summarise` for summing all usage during billing period or
+          `override` for picking the last usage record recorded within a period.
+        type: string
+        enum:
+          - summarise
+          - override
   description:
     description: The plan description (deprecated)
     type: string
