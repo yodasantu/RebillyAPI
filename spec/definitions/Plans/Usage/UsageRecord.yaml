@@ -1,0 +1,55 @@
+type: object
+required:
+  - subscriptionId
+  - subscriptionItemId
+  - quantity
+  - usageTime
+properties:
+  id:
+    description: The record identifier string.
+    readOnly: true
+    allOf:
+      - $ref: "#/definitions/ResourceId"
+  subscriptionId:
+    description: The ID of the subscription that this usage reported for.
+    allOf:
+    - $ref: "#/definitions/ResourceId"
+  subscriptionItemId:
+    description: The ID of the subscription item that this usage reported for.
+    allOf:
+    - $ref: "#/definitions/ResourceId"
+  quantity:
+    description: The usage quantity at the specified time
+  usageTime:
+    description: |
+      The time for the usage. This time must be within the current reporting window of the subscription.
+      The reporting window ends three hours after renewal time.
+    type: string
+    format: date-time
+  invoiceId:
+    description: The ID of the invoice.
+    readOnly: true
+    allOf:
+    - $ref: "#/definitions/ResourceId"
+  billedTime:
+    description: Record billed time
+    allOf:
+    - $ref: "#/definitions/ServerTimestamp"
+  createdTime:
+    description: Record created time
+    allOf:
+    - $ref: "#/definitions/ServerTimestamp"
+  updatedTime:
+    description: Record updated time
+    allOf:
+    - $ref: "#/definitions/ServerTimestamp"
+  _links:
+    type: array
+    description: The links related to resource
+    readOnly: true
+    minItems: 2
+    maxItems: 3
+    items:
+    - $ref: "#/definitions/SelfLink"
+    - $ref: "#/definitions/SubscriptionLink"
+    - $ref: "#/definitions/InvoiceLink"
