@@ -19,7 +19,8 @@ properties:
     allOf:
     - $ref: "#/definitions/ResourceId"
   quantity:
-    description: The usage quantity at the specified time
+    description: The usage quantity at the specified time or negative value for usage correction.
+    type: integer
   usageTime:
     description: |
       The time for the usage. This time must be within the current reporting window of the subscription.
