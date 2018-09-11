@@ -1,0 +1,84 @@
+parameters:
+  - $ref: "#/parameters/resourceId"
+get:
+  tags:
+    - Subscriptions
+  summary: Retrieve a specific usage record
+  responses:
+    200:
+      description: Usage ercord was retrieved successfully
+      headers:
+        Rate-Limit-Limit:
+          $ref: "#/headers/Rate-Limit-Limit"
+        Rate-Limit-Remaining:
+          $ref: "#/headers/Rate-Limit-Remaining"
+        Rate-Limit-Reset:
+          $ref: "#/headers/Rate-Limit-Reset"
+      schema:
+        $ref: "#/definitions/UsageRecord"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"
+put:
+  tags:
+    - Subscriptions
+  summary: Update or create the specific usage record
+  parameters:
+  - name: body
+    in: body
+    description: Usage record
+    required: true
+    schema:
+      $ref: "#/definitions/UsageRecord"
+  responses:
+    200:
+      description: Usage record was updated
+      headers:
+        Rate-Limit-Limit:
+          $ref: "#/headers/Rate-Limit-Limit"
+        Rate-Limit-Remaining:
+          $ref: "#/headers/Rate-Limit-Remaining"
+        Rate-Limit-Reset:
+          $ref: "#/headers/Rate-Limit-Reset"
+      schema:
+        $ref: "#/definitions/UsageRecord"
+    201:
+      description: Usage record was created
+      headers:
+        Rate-Limit-Limit:
+          $ref: "#/headers/Rate-Limit-Limit"
+        Rate-Limit-Remaining:
+          $ref: "#/headers/Rate-Limit-Remaining"
+        Rate-Limit-Reset:
+          $ref: "#/headers/Rate-Limit-Reset"
+      schema:
+        $ref: "#/definitions/UsageRecord"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    409:
+      $ref: "#/responses/Conflict"
+    422:
+      description: Invalid data was sent
+      schema:
+        $ref: "#/definitions/InvalidError"
+delete:
+  tags:
+    - Subscriptions
+  summary: Delete a specific record
+  responses:
+    204:
+      description: Usage record was deleted
+      headers:
+        Rate-Limit-Limit:
+          $ref: "#/headers/Rate-Limit-Limit"
+        Rate-Limit-Remaining:
+          $ref: "#/headers/Rate-Limit-Remaining"
+        Rate-Limit-Reset:
+          $ref: "#/headers/Rate-Limit-Reset"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"
+    409:
+      $ref: "#/responses/Conflict"
