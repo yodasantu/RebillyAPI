@@ -1,6 +1,6 @@
 get:
   tags:
-    - Subscriptions
+    - Usage records
   summary: Retrieve a list of usage records
   parameters:
     - $ref: "#/parameters/collectionLimit"
@@ -29,7 +29,7 @@ get:
       $ref: "#/responses/AccessForbidden"
 post:
   tags:
-    - Subscriptions
+    - Usage records
   summary: Create a usage record
   parameters:
     - name: body

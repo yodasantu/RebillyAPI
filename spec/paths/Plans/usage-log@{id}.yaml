@@ -2,7 +2,7 @@ parameters:
   - $ref: "#/parameters/resourceId"
 get:
   tags:
-    - Subscriptions
+    - Usage records
   summary: Retrieve a specific usage record
   responses:
     200:
@@ -22,7 +22,7 @@ get:
       $ref: "#/responses/NotFound"
 put:
   tags:
-    - Subscriptions
+    - Usage records
   summary: Update or create the specific usage record
   parameters:
   - name: body
@@ -64,7 +64,7 @@ put:
         $ref: "#/definitions/InvalidError"
 delete:
   tags:
-    - Subscriptions
+    - Usage records
   summary: Delete a specific record
   responses:
     204:

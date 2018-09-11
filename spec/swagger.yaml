@@ -181,7 +181,7 @@ tags:
       schedule.
   - name: Products
     description: |
-      A product describes what you sell (goods or services).  
+      A product describes what you sell (goods or services).
       A product determines how what you sell appears on invoices and receipts.
       The pricing for products is set in Plans.  One product can have many
       plans.
@@ -197,6 +197,9 @@ tags:
       A subscription applies a plan's template to create invoices for a customer at the
       appropriate scheduled intervals.  A subscription may also determine if the payment
       is collected automatically (with autopay set true).
+  - name: Usage records
+    description: |
+      Usage records API allows you to report usage for metered billing of plans.
   - name: Taxes
     description: |
       You can map a product to a tax category.  The tax category is used by
@@ -243,6 +246,7 @@ x-tagGroups:
       - Products
       - Shipping Zones
       - Subscriptions
+      - Usage records
       - Taxes
   - name: Misc
     tags:
