@@ -70,6 +70,7 @@ properties:
         type: number
         format: double
   meteredBilling:
+    description: Enable and configure the metered billing of the plan. No settings means the metered billing is not enabled.
     type: object
     required:
       - aggregationMethod
