@@ -78,12 +78,12 @@ properties:
       aggregationMethod:
         description: |
           Define a usage aggregation method of metered billing.
-          Allowed values are `summarize` for summing all usage during billing period or
-          `override` for picking the last usage record recorded within a period.
+          Allowed values are `sum-usages` for summing all usage during billing period or
+          `use-last-usage` for picking the last usage record recorded within a period.
         type: string
         enum:
-          - summarize
-          - override
+          - sum-usages
+          - use-last-usage
   description:
     description: The plan description (deprecated)
     type: string
