@@ -5,10 +5,11 @@ allOf:
   -
     type: "object"
     required:
-     - "gatewayConfig"
+      - "gatewayConfig"
     properties:
       gatewayConfig:
         type: object
+        description: Ilixium credentials object
         properties:
           merchantId:
             type: string
