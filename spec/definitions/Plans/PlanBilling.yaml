@@ -2,7 +2,7 @@ type: object
 description: |
   The billing timing allows to setup different billing use cases such as:
 
-  - Bill immidiately when the service period _starts_
+  - Bill immediately when the service period _starts_
   - Bill right the service period _ends_
   - Bill _interval of time_ before the service period _starts_
   - Bill _interval of time_ after the service period _starts_
