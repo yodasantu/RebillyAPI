@@ -73,6 +73,8 @@ properties:
         format: double
   billing:
     $ref: "#/definitions/PlanBilling"
+  billingAnchor:
+    $ref: "#/definitions/PlanBillingAnchor"
   description:
     description: The plan description (deprecated)
     type: string
