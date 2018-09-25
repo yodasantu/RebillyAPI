@@ -3,7 +3,7 @@ description: |
   The billing timing allows to setup different billing use cases such as:
 
   - Bill immediately when the service period _starts_
-  - Bill right the service period _ends_
+  - Bill when the service period _ends_
   - Bill _interval of time_ before the service period _starts_
   - Bill _interval of time_ after the service period _starts_
   - Bill _interval of time_ before the service period _ends_
@@ -17,7 +17,7 @@ properties:
   # But due some limitations of the Swagger v2 we must added it here.
   chronology:
     type: string
-    description: The chronology of the billing time relatively to the service period start.
+    description: The chronology of the billing time relative to the service period start.
     enum:
       - "before"
       - "after"
