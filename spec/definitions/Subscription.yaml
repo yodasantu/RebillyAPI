@@ -39,6 +39,15 @@ properties:
       this property allows to susbcribe to different plans.
     allOf:
       - $ref: "#/definitions/PlanBilling"
+  recurringInterval:
+    type: object
+    description: |
+      The recurring interval to override plan settings. To use plan settings, set `null`.
+      To use multiple plans in one subscription they all must have the same recurring period length,
+      this property allows to susbcribe to different plans.
+    properties:
+      periodAnchorInstruction:
+        $ref: "#/definitions/ServicePeriodAnchorInstruction"
   websiteId:
     description:  Unique id for each website
     allOf:
