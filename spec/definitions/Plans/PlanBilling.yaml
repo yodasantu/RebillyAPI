@@ -12,14 +12,7 @@ required:
   - billingTiming
 properties:
   billingTiming:
-    description: |
-      The of billing timing in relation to the service period.
-      For `prepaid` plans the customer pays when service period starts,
-      whereas for `postpaid` he pays when service period ends.
-    type: string
-    enum:
-      - "prepaid"
-      - "postpaid"
+    $ref: "#/definitions/PlanBillingTiming"
   # This should be specified in each schedule instruction method, for example "immediately" don't need it.
   # But due some limitations of the Swagger v2 we must added it here.
   chronology:
