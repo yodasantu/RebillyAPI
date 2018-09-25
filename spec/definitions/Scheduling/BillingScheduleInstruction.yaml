@@ -1,0 +1,26 @@
+type: object
+description: |
+  The calculation instruction of billing time.
+  This is used in conjunction with the **service period anchor** to calculate the time the invoice is issued.
+discriminator: method
+default: {"method": "immediately", "chronology": "before"}
+required:
+  - method
+  - chronology
+properties:
+  # This should be specified in each method, for example "immediately" don't need it.
+  # But due some limitations of the Swagger v2 we must added it here.
+  chronology:
+    type: string
+    description: The emitting time of the custom event relatively to the system event
+    enum:
+      - "before"
+      - "after"
+  method:
+    type: string
+    default: "immediately"
+    enum:
+      - "immediately"
+      - "date-interval"
+      - "day-of-month"
+      - "day-of-week"

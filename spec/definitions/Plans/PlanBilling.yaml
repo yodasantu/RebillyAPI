@@ -1,0 +1,24 @@
+type: object
+description: |
+  The billing timing allows to setup different billing use cases such as:
+
+  - Bill immidiately when the service period _starts_
+  - Bill right the service period _ends_
+  - Bill _interval of time_ before the service period _starts_
+  - Bill _interval of time_ after the service period _starts_
+  - Bill _interval of time_ before the service period _ends_
+  - Bill _interval of time_ after the service period _ends_
+required:
+  - billingTiming
+properties:
+  billingTiming:
+    description: |
+      The of billing timing in relation to the service period.
+      For `prepaid` plans the customer pays when service period starts,
+      whereas for `postpaid` he pays when service period ends.
+    type: string
+    enum:
+      - "prepaid"
+      - "postpaid"
+  scheduleInstruction:
+    $ref: "#/definitions/BillingScheduleInstruction"
