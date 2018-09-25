@@ -28,6 +28,17 @@ properties:
         quantity:
           description: Number of units of the product on the given plan
           type: integer
+        billingTiming:
+          description: The billing timing to override plan timing. To use plan timing, set `null`.
+          allOf:
+            - $ref: "#/definitions/PlanBillingTiming"
+  billing:
+    description: |
+      The billing settings to override plan settings. To use plan settings, set `null`.
+      To use multiple plans in one subscription they all must have the same billing period,
+      this property allows to susbcribe to different plans.
+    allOf:
+      - $ref: "#/definitions/PlanBilling"
   websiteId:
     description:  Unique id for each website
     allOf:
