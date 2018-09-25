@@ -38,7 +38,7 @@ properties:
   pricing:
     $ref: "#/definitions/PlanPriceFormula"
   recurringInterval:
-    description: The billing interval. For a one-time item, use `null`.
+    description: The service interval. For a one-time item, use `null`.
     allOf:
       - $ref: "#/definitions/PlanPeriod"
       - type: object
