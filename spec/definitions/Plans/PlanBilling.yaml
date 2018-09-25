@@ -20,5 +20,13 @@ properties:
     enum:
       - "prepaid"
       - "postpaid"
+  # This should be specified in each schedule instruction method, for example "immediately" don't need it.
+  # But due some limitations of the Swagger v2 we must added it here.
+  chronology:
+    type: string
+    description: The chronology of the billing time relatively to the service period start.
+    enum:
+      - "before"
+      - "after"
   scheduleInstruction:
     $ref: "#/definitions/BillingScheduleInstruction"
