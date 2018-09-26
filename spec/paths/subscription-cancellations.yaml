@@ -25,7 +25,7 @@ get:
       schema:
         type: array
         items:
-          $ref: "#/definitions/Cancellation"
+          $ref: "#/definitions/SubscriptionCancellation"
     401:
       $ref: "#/responses/AccessForbidden"
 post:
@@ -39,7 +39,7 @@ post:
       description: Cancellation resource
       required: true
       schema:
-        $ref: "#/definitions/Cancellation"
+        $ref: "#/definitions/SubscriptionCancellation"
   responses:
     201:
       description: Cancellation was created, subscription is or will be deactivated
@@ -51,7 +51,7 @@ post:
         Rate-Limit-Reset:
           $ref: "#/headers/Rate-Limit-Reset"
       schema:
-        $ref: "#/definitions/Cancellation"
+        $ref: "#/definitions/SubscriptionCancellation"
     401:
       $ref: "#/responses/AccessForbidden"
     422:
